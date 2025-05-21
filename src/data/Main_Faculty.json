@@ -1,0 +1,18 @@
+[
+    {
+        "id":1,
+        "name":"Tharamani",
+        "designation":"POST",
+        "image":"src",
+        "email":"tharamani@gmail.com",
+        "phone":"9876543210"
+    },
+    {
+        "id":2,
+        "name":"Devesh",
+        "designation":"POST",
+        "image":"src",
+        "email":"hello@gmail.com",
+        "phone":"8876543210"
+    }
+]

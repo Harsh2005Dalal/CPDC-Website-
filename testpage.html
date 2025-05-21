@@ -1,0 +1,296 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IIT Ropar - Training and Placement Cell</title>
+    <style>
+        /* Global styles */
+        .placement-page {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            line-height: 1.6;
+            color: #333;
+            margin: 0;
+            padding: 0;
+        }
+        
+        /* Header styles */
+        .placement-header {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            color: white;
+            padding: 2rem 0;
+            text-align: center;
+        }
+        
+        .placement-logo {
+            max-width: 150px;
+            margin-bottom: 1rem;
+        }
+        
+        .placement-title {
+            font-size: 2.5rem;
+            margin: 0;
+            font-weight: 700;
+        }
+        
+        .placement-subtitle {
+            font-size: 1.2rem;
+            font-weight: 400;
+            margin-top: 0.5rem;
+        }
+        
+        /* Main content styles */
+        .placement-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .placement-section {
+            margin-bottom: 3rem;
+        }
+        
+        .placement-section-title {
+            font-size: 2rem;
+            color: #1e3a8a;
+            border-bottom: 3px solid #3b82f6;
+            padding-bottom: 0.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .placement-mission-vision {
+            display: flex;
+            gap: 2rem;
+            flex-wrap: wrap;
+        }
+        
+        .placement-mission, .placement-vision {
+            flex: 1;
+            min-width: 300px;
+            background-color: #f8fafc;
+            padding: 2rem;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+        }
+        
+        .placement-card-title {
+            font-size: 1.5rem;
+            color: #1e3a8a;
+            margin-top: 0;
+            margin-bottom: 1rem;
+        }
+        
+        .placement-card-content {
+            font-size: 1.1rem;
+        }
+        
+        .placement-objectives {
+            margin-top: 3rem;
+        }
+        
+        .placement-objective-list {
+            list-style-type: none;
+            padding: 0;
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            gap: 2rem;
+            margin: 0;
+        }
+        
+        .placement-objective-item {
+            background-color: #f8fafc;
+            border-radius: 8px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            padding: 1.5rem;
+            transition: all 0.3s ease;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+            height: auto;
+            margin-bottom: 0;
+            position: relative;
+            z-index: 1;
+        }
+        
+        .placement-objective-item:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 12px 20px rgba(59, 130, 246, 0.2);
+            z-index: 2;
+        }
+        
+        .placement-objective-icon {
+            background-color: #3b82f6;
+            color: white;
+            width: 50px;
+            height: 50px;
+            border-radius: 50%;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            margin-bottom: 1rem;
+            font-size: 1.2rem;
+            font-weight: bold;
+        }
+        
+        .placement-objective-content {
+            font-size: 1.1rem;
+        }
+        
+        .placement-cta {
+            background: linear-gradient(135deg, #1e3a8a 0%, #3b82f6 100%);
+            text-align: center;
+            padding: 3rem 2rem;
+            border-radius: 8px;
+            color: white;
+            margin-top: 2rem;
+        }
+        
+        .placement-cta-title {
+            font-size: 1.8rem;
+            margin-bottom: 1rem;
+        }
+        
+        .placement-button {
+            display: inline-block;
+            background-color: white;
+            color: #1e3a8a;
+            padding: 0.8rem 1.5rem;
+            border-radius: 4px;
+            font-weight: 600;
+            text-decoration: none;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+        
+        .placement-button:hover {
+            background-color: #f8fafc;
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Footer styles */
+        .placement-footer {
+            background-color: #1e3a8a;
+            color: white;
+            padding: 2rem;
+            text-align: center;
+        }
+        
+        .placement-footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        
+        .placement-contact-info {
+            margin-top: 1rem;
+        }
+        
+        .placement-contact-item {
+            margin-bottom: 0.5rem;
+        }
+        
+        @media (max-width: 768px) {
+            .placement-mission-vision {
+                flex-direction: column;
+            }
+            
+            .placement-title {
+                font-size: 2rem;
+            }
+        }
+    </style>
+</head>
+<body class="placement-page">
+    <header class="placement-header">
+        <div class="placement-container">
+            <img src="/api/placeholder/150/150" alt="IIT Ropar Logo" class="placement-logo" />
+            <h1 class="placement-title">Training and Placement Cell</h1>
+            <p class="placement-subtitle">Indian Institute of Technology, Ropar</p>
+        </div>
+    </header>
+    
+    <main class="placement-container">
+        <section class="placement-section">
+            <h2 class="placement-section-title">About the Cell</h2>
+            <p>The Training and Placement Cell at IIT Ropar serves as the interface between the students and the industry. We facilitate the process of student placement by organizing campus interviews for final-year students, as well as arranging for internships for pre-final year students. The cell is managed by a team of dedicated faculty members and student representatives.</p>
+        </section>
+        
+        <section class="placement-section">
+            <h2 class="placement-section-title">Our Mission & Vision</h2>
+            <div class="placement-mission-vision">
+                <div class="placement-mission">
+                    <h3 class="placement-card-title">Mission</h3>
+                    <div class="placement-card-content">
+                        <p>The mission of the Training and Placement Cell at IIT Ropar is to provide excellent placement opportunities to all students by establishing strong industry partnerships and preparing students for successful careers through comprehensive skill development programs.</p>
+                        <p>We are committed to:</p>
+                        <ul>
+                            <li>Facilitating career guidance for students</li>
+                            <li>Building and maintaining strong corporate relationships</li>
+                            <li>Identifying and addressing gaps between industry requirements and academic curriculum</li>
+                            <li>Providing infrastructure and support for seamless recruitment processes</li>
+                        </ul>
+                    </div>
+                </div>
+                
+                <div class="placement-vision">
+                    <h3 class="placement-card-title">Vision</h3>
+                    <div class="placement-card-content">
+                        <p>Our vision is to establish IIT Ropar as a premier destination for national and international recruiters by consistently delivering industry-ready professionals who can contribute to technological advancement and innovation globally.</p>
+                        <p>We envision:</p>
+                        <ul>
+                            <li>100% placement for all eligible students</li>
+                            <li>Attracting diverse employers from various sectors</li>
+                            <li>Establishing IIT Ropar as a brand known for quality technical talent</li>
+                            <li>Creating a self-sustaining ecosystem for career development</li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        <section class="placement-objectives">
+            <h2 class="placement-section-title">Key Objectives</h2>
+            <ul class="placement-objective-list">
+                <li class="placement-objective-item">
+                    <div class="placement-objective-icon">1</div>
+                    <div class="placement-objective-content">Provide comprehensive placement assistance to all students and organize campus recruitment drives.</div>
+                </li>
+                <li class="placement-objective-item">
+                    <div class="placement-objective-icon">2</div>
+                    <div class="placement-objective-content">Develop and nurture long-term relationships with industry partners and corporate houses.</div>
+                </li>
+                <li class="placement-objective-item">
+                    <div class="placement-objective-icon">3</div>
+                    <div class="placement-objective-content">Conduct skill development workshops, training programs, and mock interviews to prepare students for recruitment processes.</div>
+                </li>
+                <li class="placement-objective-item">
+                    <div class="placement-objective-icon">4</div>
+                    <div class="placement-objective-content">Gather feedback from industry about curriculum relevance and student preparedness to continuously improve academic offerings.</div>
+                </li>
+                <li class="placement-objective-item">
+                    <div class="placement-objective-icon">5</div>
+                    <div class="placement-objective-content">Establish an alumni network to facilitate mentorship and career guidance opportunities for current students.</div>
+                </li>
+            </ul>
+        </section>
+        
+        <div class="placement-cta">
+            <h3 class="placement-cta-title">Partner With Us</h3>
+            <p>Discover the exceptional talent at IIT Ropar and find your organization's next generation of leaders and innovators.</p>
+            <a href="#" class="placement-button">Recruit From IIT Ropar</a>
+        </div>
+    </main>
+    
+    <footer class="placement-footer">
+        <div class="placement-footer-content">
+            <h3>Contact the Training & Placement Cell</h3>
+            <div class="placement-contact-info">
+                <p class="placement-contact-item">Email: placement@iitrpr.ac.in</p>
+                <p class="placement-contact-item">Phone: +91-1881-242148</p>
+                <p class="placement-contact-item">IIT Ropar, Rupnagar, Punjab - 140001</p>
+            </div>
+        </div>
+    </footer>
+</body>
+</html>

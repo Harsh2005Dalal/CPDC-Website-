@@ -1,0 +1,50 @@
+.footer {
+    background: #01263e;
+    background-size: 300% 300%;
+    animation: color 12s ease-in-out infinite;
+    width: 100%;
+    min-height: 80px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    font-size: 14px;
+    padding: 8px 20px;
+    position: relative;
+    bottom: 0;
+    flex-wrap: wrap;
+    text-align: center;
+}
+
+.footerBox{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    margin: 10px;
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+    .footer {
+        flex-direction: column;
+        min-height: auto;
+        padding: 10px 15px;
+        align-items: center;
+    }
+
+    .faculty,
+    .organizers {
+        width: 100%;
+    }
+
+    .organizers-grid {
+        grid-template-columns: 1fr;
+        gap: 10px;
+    }
+
+    .faculty-img, .organizer-img {
+        width: 80px;
+        height: 80px;
+    }
+}
