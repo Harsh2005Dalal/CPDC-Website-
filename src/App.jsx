@@ -10,6 +10,7 @@ import Cchome from './pages/cc_home'
 import Placement from './pages/placement_stats'
 import Recruit from './pages/Recruit_us'
 import Our_Team from './pages/our_team.jsx'
+import Past_Recruiters from './pages/past_Recruiters.jsx'
 // import OurTeam from './pages/our_team'
 
 import Navbar from "./components/Navbar.jsx"
@@ -31,6 +32,7 @@ function App() {
         <Route path='/placement-stats' element={<><Placement /></>} />
         <Route path='/corporate-connect-home' element={<><Cchome /></>} />
         <Route path='/our-team' element={<><Our_Team /></>} />
+        <Route path='/past-recruiters' element={<><Past_Recruiters /></>} />
       </Routes>
       <Footer/>
     </>

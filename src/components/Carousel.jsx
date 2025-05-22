@@ -1,21 +1,11 @@
 import { useState, useEffect, useRef } from 'react';
+import logos from '../data/pastRecruiters.json'
+import {Link} from 'react-router'
 
 // This component creates a smooth horizontal scrolling carousel
 // that automatically loops through company logos
 const Carousel = () => {
-  // Placeholder company logos - replace with your actual company images
-  const logos = [
-    { id: 1, name: 'Google', src: '/api/placeholder/200/100' },
-    { id: 2, name: 'Microsoft', src: '/api/placeholder/200/100' },
-    { id: 3, name: 'Amazon', src: '/api/placeholder/200/100' },
-    { id: 4, name: 'Apple', src: '/api/placeholder/200/100' },
-    { id: 5, name: 'Meta', src: '/api/placeholder/200/100' },
-    { id: 6, name: 'IBM', src: '/api/placeholder/200/100' },
-    { id: 7, name: 'Oracle', src: '/api/placeholder/200/100' },
-    { id: 8, name: 'Intel', src: '/api/placeholder/200/100' },
-    { id: 9, name: 'Cisco', src: '/api/placeholder/200/100' },
-    { id: 10, name: 'Adobe', src: '/api/placeholder/200/100' },
-  ];
+  // Placeholder company logos - replace with your actual company image
   
   // Clone the logos array to create a seamless infinite scroll effect
   const allLogos = [...logos, ...logos];
@@ -71,8 +61,8 @@ const Carousel = () => {
   return (
     <div className="w-full overflow-hidden py-6">
       <div className="text-center mb-4">
-        <h2 className="text-2xl font-bold text-gray-800">Our Recruiting Partners</h2>
-        <p className="text-gray-600">Top companies that recruit from our college</p>
+        <h2 className="text-3xl pb-1 font-bold text-gray-800 relative z-10 transition-all duration-300 ease-in-out hover:-translate-y-2 hover:z-20 hover:cursor-pointer">Our Recruiting Partners</h2>
+        <p className="text-black">Top companies that recruit from our college</p>
       </div>
       
       <div 

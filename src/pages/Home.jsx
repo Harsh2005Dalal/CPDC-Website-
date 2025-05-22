@@ -2,65 +2,131 @@ import React from "react";
 import "./h.css";
 import Carousel from '../components/Carousel.jsx'
 import {Link}  from 'react-router'
+import AnnouncementSlider from '../components/Announcements.jsx'
 
 const Home = () => {
   return (
-    <div className="bg-image">
-      <div className="text pt-20 pb-20 pl-10 pr-10 text-justify">
-        <div className="text-4xl font-extrabold pb-5">IIT Ropar</div>
-        Lorem, ipsum dolor sit amet consectetur adipisicing elit. Delectus
-        consequuntur est excepturi ab error. Consectetur eum unde exercitationem
-        sed non quae, ullam modi ab tenetur architecto eaque pariatur laborum id
-        aut excepturi nihil, doloremque delectus suscipit dicta est
-        reprehenderit possimus ex! Distinctio, facilis? Quos dolor voluptates
-        dolores. Nulla porro voluptate cum vel, distinctio, eos autem minima
-        dicta ipsum nemo ipsam nisi? Odit deleniti, non sapiente ea cum esse
-        debitis unde quaerat tempore, quisquam nisi id commodi vitae fuga
-        maiores ut alias modi, ipsam laboriosam similique corrupti. Eligendi
-        pariatur odit impedit, eum illum nam rem quisquam, sed ipsam sint, dicta
-        consequuntur voluptas debitis deserunt optio atque distinctio
-        reprehenderit illo quidem aperiam facilis aut? Dolor, veniam suscipit
-        esse maxime dicta facilis harum optio tempore aliquam, illum doloremque
-        fuga cumque? Magnam sequi modi natus aspernatur non facilis in
-        necessitatibus incidunt libero eos, officiis veritatis. Odit, eaque
-        aperiam dignissimos aliquid quis aut dicta ex nam tenetur fuga, facilis
-        quae labore voluptatum accusamus, nulla molestiae non praesentium. Iusto
-        soluta veniam aspernatur explicabo nihil voluptate illo temporibus
-        laudantium officiis aperiam iure mollitia nostrum, incidunt quaerat.
-        Voluptatibus et nulla aspernatur obcaecati dicta dolores fugiat, natus
-        aliquam adipisci. Voluptate quibusdam explicabo officia, assumenda
-        inventore iure eaque eligendi veniam quae libero soluta quos dolore
-        praesentium ipsa, provident id numquam.
-      </div>
+    <div className="bg-image min-h-screen">
+      <AnnouncementSlider />
+      
+      {/* Hero Section */}
+      <div className="max-w-6xl mx-auto px-8 py-24">
+        <div className="text-center mb-20">
+          <h1 className="text-6xl font-light text-gray-800 mb-6 tracking-wide">
+            IIT Ropar
+          </h1>
+          <div className="w-24 h-1 bg-blue-600 mx-auto mb-8"></div>
+          <p className="text-xl text-gray-600 max-w-4xl mx-auto leading-relaxed font-light mb-6">
+            The Indian Institute of Technology Ropar stands as a premier institute of national importance, 
+            fostering innovation and excellence in technology and research. Established with a vision to 
+            create world-class engineers and researchers, IIT Ropar has emerged as a beacon of academic 
+            excellence in northern India.
+          </p>
+          <p className="text-lg text-gray-600 max-w-4xl mx-auto leading-relaxed font-light">
+            Our institute is committed to empowering minds to shape the future through cutting-edge education, 
+            groundbreaking research, and industry collaboration. With state-of-the-art facilities and a 
+            distinguished faculty, we nurture innovation and entrepreneurship while maintaining the highest 
+            standards of academic rigor.
+          </p>
+        </div>
 
-      <div className="text pt-20 pb-20 pl-10 pr-10 text-justify">
-        <div className="text-4xl font-extrabold">About CDPC</div>
-        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Modi incidunt,
-        fugit amet in voluptate sed! Eligendi nemo soluta aliquam aut illo quasi
-        ex at rerum nesciunt minima velit deserunt ab debitis voluptas
-        voluptatem veritatis commodi voluptatum, aperiam culpa, consectetur quos
-        non placeat quae! Sunt cum et minus laboriosam tempora praesentium,
-        mollitia quam est autem, nesciunt accusamus officiis, voluptate
-        accusantium! Delectus assumenda quam voluptate nulla, unde minima
-        reprehenderit, voluptatum nisi fugit nemo mollitia facilis ex ea
-        excepturi expedita veritatis accusantium iure, eligendi optio autem.
-        Ipsam, libero eius. Mollitia saepe nam nesciunt culpa iusto rem
-        distinctio quos vitae possimus, natus praesentium unde fuga minus autem
-        accusamus neque tenetur molestias aut voluptate cumque! Dolorum,
-        provident quasi. Sequi aspernatur ex voluptatem, maiores praesentium,
-        quaerat ratione quisquam doloremque inventore tenetur beatae amet iste
-        distinctio fuga quo reprehenderit error quis similique recusandae, nulla
-        excepturi voluptatibus earum necessitatibus autem. Sequi commodi sint
-        laudantium distinctio earum rem, qui facilis velit quidem
-        necessitatibus, nobis nulla neque assumenda eius placeat incidunt
-        magnam, obcaecati voluptas cumque ab dolorum.
-      </div>
+        {/* About CDPC Section */}
+        <div className="bg-white/80 backdrop-blur-sm rounded-2xl shadow-xl p-12 mb-16 relative z-10 transition-all duration-300 ease-in-out hover:-translate-y-4 hover:shadow-x">
+          <div className="text-center mb-12">
+            <h2 className="text-4xl font-light text-gray-800 mb-4">
+              About CDPC
+            </h2>
+            <div className="w-16 h-1 bg-blue-600 mx-auto mb-8"></div>
+          </div>
+          
+          <div className="space-y-8 mb-12">
+            <p className="text-lg text-gray-700 leading-relaxed font-light text-center max-w-5xl mx-auto">
+              The Career Development and Placement Cell (CDPC) at IIT Ropar serves as the vital bridge between 
+              academic excellence and professional success, connecting our exceptionally talented students with 
+              leading organizations across the globe. Our mission is to ensure that every graduate not only 
+              finds meaningful employment but also embarks on a career path that aligns with their aspirations 
+              and maximizes their potential.
+            </p>
+            
+            <div className="grid lg:grid-cols-2 gap-12 items-start">
+              <div className="space-y-6">
+                <h3 className="text-2xl font-medium text-gray-800 mb-4">Our Mission</h3>
+                <p className="text-base text-gray-700 leading-relaxed">
+                  We are committed to nurturing careers through comprehensive support, strategic industry 
+                  partnerships, and innovative placement strategies. Our dedicated team works tirelessly to 
+                  understand market trends, employer requirements, and student aspirations to create perfect 
+                  matches that benefit all stakeholders.
+                </p>
+                <p className="text-base text-gray-700 leading-relaxed">
+                  Through continuous engagement with industry leaders, we ensure our students are equipped 
+                  with not just technical knowledge but also the soft skills and professional acumen required 
+                  to excel in today's competitive landscape.
+                </p>
+              </div>
+              
+              <div className="space-y-6">
+                <h3 className="text-2xl font-medium text-gray-800 mb-4">Key Services</h3>
+                <div className="space-y-4">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-3 h-3 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                    <div>
+                      <span className="text-gray-800 font-medium block">Industry Partnerships</span>
+                      <span className="text-gray-600 text-sm">Building strong relationships with top-tier companies</span>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-4">
+                    <div className="w-3 h-3 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                    <div>
+                      <span className="text-gray-800 font-medium block">Career Guidance</span>
+                      <span className="text-gray-600 text-sm">Personalized counseling and career path planning</span>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-4">
+                    <div className="w-3 h-3 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                    <div>
+                      <span className="text-gray-800 font-medium block">Skill Development</span>
+                      <span className="text-gray-600 text-sm">Workshops and training for professional readiness</span>
+                    </div>
+                  </div>
+                  <div className="flex items-start space-x-4">
+                    <div className="w-3 h-3 bg-blue-600 rounded-full mt-2 flex-shrink-0"></div>
+                    <div>
+                      <span className="text-gray-800 font-medium block">Placement Support</span>
+                      <span className="text-gray-600 text-sm">End-to-end assistance throughout the recruitment process</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+          
+          <div className="bg-blue-50 rounded-xl p-8">
+            <h3 className="text-2xl font-medium text-gray-800 mb-4 text-center">Our Impact</h3>
+            <p className="text-base text-gray-700 leading-relaxed text-center max-w-4xl mx-auto">
+              Over the years, CDPC has successfully placed thousands of students in prestigious organizations 
+              across various sectors including technology, consulting, finance, research, and entrepreneurship. 
+              Our alumni continue to make significant contributions to their respective fields, upholding the 
+              reputation and legacy of IIT Ropar on the global stage.
+            </p>
+          </div>
+        </div>
 
-      <div className='pl-5 pr-5 pb-5'>
-        <Carousel />
-        <div>
-        {/* <Link className='flex justify-end pr-10 text-lg'><button className='hover:curosr-pointer'>More</button></Link> */}
-
+        {/* Carousel Section */}
+        <div className="bg-white/60 backdrop-blur-sm rounded-2xl shadow-lg p-8 relative z-10 transition-all duration-300 ease-in-out hover:-translate-y-4 hover:shadow-x">
+          <div className="text-center mb-8">
+            <h3 className="text-3xl font-light text-gray-800 mb-4">
+              Campus Highlights
+            </h3>
+            <div className="w-12 h-1 bg-blue-600 mx-auto"></div>
+          </div>
+          
+          <Carousel />
+          
+          <div className="flex justify-center mt-8">
+          <Link to='/past-recruiters' ><button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:cursor-pointer">
+              Explore More
+            </button></Link>
+          </div>
         </div>
       </div>
     </div>

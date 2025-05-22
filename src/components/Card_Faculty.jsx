@@ -4,7 +4,7 @@ import { PiCropDuotone } from 'react-icons/pi'
 
 const Card_Faculty = (props) => {
   return (
-    <div className="card h-80 w-70 m-auto mt-20 mb-20 shadow-[2px_2px_10px_rgba(0,0,0,0.2)]">
+    <div className="card h-80 w-70 m-auto mt-20 mb-20 rounded-lg shadow-md relative z-10 transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl hover:shadow-blue-100 hover:z-20 hover:cursor-pointer">
         <div className='flex justify-center items-center flex-column m-auto'>
             <div className="designation font-bold text-3xl pt-2">{props.designation}</div>
         </div>
