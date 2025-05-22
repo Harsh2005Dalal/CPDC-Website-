@@ -1,0 +1,37 @@
+[
+  {
+    "year": "2020",
+    "placed": 145,
+    "packages": 180,
+    "avgPackage": 12.5,
+    "highestPackage": 42
+  },
+  {
+    "year": "2021",
+    "placed": 168,
+    "packages": 195,
+    "avgPackage": 14.2,
+    "highestPackage": 45
+  },
+  {
+    "year": "2022",
+    "placed": 192,
+    "packages": 220,
+    "avgPackage": 15.8,
+    "highestPackage": 52
+  },
+  {
+    "year": "2023",
+    "placed": 215,
+    "packages": 245,
+    "avgPackage": 17.3,
+    "highestPackage": 58
+  },
+  {
+    "year": "2024",
+    "placed": 238,
+    "packages": 275,
+    "avgPackage": 18.9,
+    "highestPackage": 65
+  }
+]

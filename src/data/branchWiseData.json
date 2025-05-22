@@ -1,0 +1,58 @@
+[
+  {
+    "branch": "Computer Science",
+    "placed": 45,
+    "total": 50,
+    "percentage": 90,
+    "avgPackage": 28.5
+  },
+  {
+    "branch": "Electronics & Communication",
+    "placed": 38,
+    "total": 45,
+    "percentage": 84.4,
+    "avgPackage": 22.3
+  },
+  {
+    "branch": "Mechanical Engineering",
+    "placed": 42,
+    "total": 52,
+    "percentage": 80.8,
+    "avgPackage": 15.8
+  },
+  {
+    "branch": "Civil Engineering",
+    "placed": 35,
+    "total": 48,
+    "percentage": 72.9,
+    "avgPackage": 12.4
+  },
+  {
+    "branch": "Chemical Engineering",
+    "placed": 28,
+    "total": 35,
+    "percentage": 80,
+    "avgPackage": 16.7
+  },
+  {
+    "branch": "Metallurgy",
+    "placed": 22,
+    "total": 28,
+    "percentage": 78.6,
+    "avgPackage": 14.2
+  },
+  {
+    "branch": "Physics",
+    "placed": 18,
+    "total": 25,
+    "percentage": 72,
+    "avgPackage": 13.5
+  },
+  {
+    "branch": "Chemistry",
+    "placed": 15,
+    "total": 20,
+    "percentage": 75,
+    "avgPackage": 12.8
+  }
+]

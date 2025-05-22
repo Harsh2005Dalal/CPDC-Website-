@@ -1,0 +1,90 @@
+[
+  {
+    "id": 1,
+    "title": "Complete System Design Interview Course",
+    "instructor": "Alex Sharma",
+    "category": "System Design",
+    "duration": "4h 32m",
+    "views": "127K",
+    "thumbnail": "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=500&h=300&fit=crop&crop=center",
+    "videoUrl": "https://www.youtube.com/watch?v=example1",
+    "description": "Master system design concepts for FAANG interviews"
+  },
+  {
+    "id": 2,
+    "title": "Data Structures & Algorithms Masterclass",
+    "instructor": "Priya Kumar",
+    "category": "Technical Interview",
+    "duration": "6h 15m",
+    "views": "89K",
+    "thumbnail": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=500&h=300&fit=crop&crop=center",
+    "videoUrl": "https://www.youtube.com/watch?v=example2",
+    "description": "Complete DSA preparation for coding interviews"
+  },
+  {
+    "id": 3,
+    "title": "Effective Leadership & Team Management",
+    "instructor": "Dr. Sarah Johnson",
+    "category": "Management",
+    "duration": "2h 45m",
+    "views": "65K",
+    "thumbnail": "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=500&h=300&fit=crop&crop=center",
+    "videoUrl": "https://www.youtube.com/watch?v=example3",
+    "description": "Build strong leadership skills for modern workplace"
+  },
+  {
+    "id": 4,
+    "title": "Professional Communication Skills",
+    "instructor": "Michael Chen",
+    "category": "Communication",
+    "duration": "3h 20m",
+    "views": "95K",
+    "thumbnail": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=500&h=300&fit=crop&crop=center",
+    "videoUrl": "https://www.youtube.com/watch?v=example4",
+    "description": "Master workplace communication and presentation skills"
+  },
+  {
+    "id": 5,
+    "title": "Advanced Java Programming",
+    "instructor": "Rajesh Patel",
+    "category": "Technical Interview",
+    "duration": "5h 10m",
+    "views": "112K",
+    "thumbnail": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=500&h=300&fit=crop&crop=center",
+    "videoUrl": "https://www.youtube.com/watch?v=example5",
+    "description": "Deep dive into Java concepts for technical interviews"
+  },
+  {
+    "id": 6,
+    "title": "Database Design & SQL Optimization",
+    "instructor": "Emma Rodriguez",
+    "category": "System Design",
+    "duration": "4h 05m",
+    "views": "78K",
+    "thumbnail": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=500&h=300&fit=crop&crop=center",
+    "videoUrl": "https://www.youtube.com/watch?v=example6",
+    "description": "Learn database design principles and query optimization"
+  },
+  {
+    "id": 7,
+    "title": "Conflict Resolution & Negotiation",
+    "instructor": "David Kim",
+    "category": "Management",
+    "duration": "2h 30m",
+    "views": "54K",
+    "thumbnail": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=500&h=300&fit=crop&crop=center",
+    "videoUrl": "https://www.youtube.com/watch?v=example7",
+    "description": "Handle workplace conflicts and negotiate effectively"
+  },
+  {
+    "id": 8,
+    "title": "Business Writing & Email Etiquette",
+    "instructor": "Lisa Thompson",
+    "category": "Communication",
+    "duration": "1h 45m",
+    "views": "43K",
+    "thumbnail": "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=500&h=300&fit=crop&crop=center",
+    "videoUrl": "https://www.youtube.com/watch?v=example8",
+    "description": "Write professional emails and business documents"
+  }
+]

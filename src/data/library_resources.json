@@ -1,0 +1,90 @@
+[
+  {
+    "id": 1,
+    "title": "Cracking the Coding Interview",
+    "author": "Gayle Laakmann McDowell",
+    "category": "Technical Interview",
+    "rating": 4.8,
+    "description": "189 Programming Questions and Solutions",
+    "coverColor": "bg-gradient-to-br from-blue-600 to-purple-700",
+    "coverImage": "https://images.unsplash.com/photo-1555066931-4365d14bab8c?w=400&h=600&fit=crop&crop=center",
+    "pdfUrl": "/documents/cracking-coding-interview.pdf"
+  },
+  {
+    "id": 2,
+    "title": "Elements of Programming Interviews",
+    "author": "Adnan Aziz, Tsung-Hsien Lee",
+    "category": "Technical Interview",
+    "rating": 4.7,
+    "description": "The Insiders' Guide to Programming Interviews",
+    "coverColor": "bg-gradient-to-br from-green-600 to-teal-700",
+    "coverImage": "https://images.unsplash.com/photo-1542831371-29b0f74f9713?w=400&h=600&fit=crop&crop=center",
+    "pdfUrl": "/documents/elements-programming-interviews.pdf"
+  },
+  {
+    "id": 3,
+    "title": "System Design Interview",
+    "author": "Alex Xu",
+    "category": "System Design",
+    "rating": 4.9,
+    "description": "An Insider's Guide to System Design",
+    "coverColor": "bg-gradient-to-br from-orange-600 to-red-700",
+    "coverImage": "https://images.unsplash.com/photo-1558494949-ef010cbdcc31?w=400&h=600&fit=crop&crop=center",
+    "pdfUrl": "/documents/system-design-interview.pdf"
+  },
+  {
+    "id": 4,
+    "title": "The Complete Guide to Professional Communication",
+    "author": "Barbara G. Cox",
+    "category": "Communication",
+    "rating": 4.6,
+    "description": "Master Workplace Communication Skills",
+    "coverColor": "bg-gradient-to-br from-indigo-600 to-blue-700",
+    "coverImage": "https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=400&h=600&fit=crop&crop=center",
+    "pdfUrl": "/documents/professional-communication.pdf"
+  },
+  {
+    "id": 5,
+    "title": "Leadership in Organizations",
+    "author": "Gary Yukl",
+    "category": "Management",
+    "rating": 4.5,
+    "description": "Effective Leadership and Management Strategies",
+    "coverColor": "bg-gradient-to-br from-purple-600 to-pink-700",
+    "coverImage": "https://images.unsplash.com/photo-1556761175-b413da4baf72?w=400&h=600&fit=crop&crop=center",
+    "pdfUrl": "/documents/leadership-organizations.pdf"
+  },
+  {
+    "id": 6,
+    "title": "Data Structures and Algorithms Made Easy",
+    "author": "Narasimha Karumanchi",
+    "category": "Technical Interview",
+    "rating": 4.7,
+    "description": "Complete DSA Guide for Placements",
+    "coverColor": "bg-gradient-to-br from-cyan-600 to-blue-700",
+    "coverImage": "https://images.unsplash.com/photo-1509228627152-72ae9ae6848d?w=400&h=600&fit=crop&crop=center",
+    "pdfUrl": "/documents/dsa-made-easy.pdf"
+  },
+  {
+    "id": 7,
+    "title": "Effective Team Management",
+    "author": "John Adair",
+    "category": "Management",
+    "rating": 4.4,
+    "description": "Building High-Performance Teams",
+    "coverColor": "bg-gradient-to-br from-emerald-600 to-green-700",
+    "coverImage": "https://images.unsplash.com/photo-1552664730-d307ca884978?w=400&h=600&fit=crop&crop=center",
+    "pdfUrl": "/documents/effective-team-management.pdf"
+  },
+  {
+    "id": 8,
+    "title": "Business Communication Essentials",
+    "author": "Courtland Bovee, John Thill",
+    "category": "Communication",
+    "rating": 4.6,
+    "description": "Professional Communication in Digital Age",
+    "coverColor": "bg-gradient-to-br from-rose-600 to-pink-700",
+    "coverImage": "https://images.unsplash.com/photo-1573164713714-d95e436ab8d6?w=400&h=600&fit=crop&crop=center",
+    "pdfUrl": "/documents/business-communication.pdf"
+  }
+]

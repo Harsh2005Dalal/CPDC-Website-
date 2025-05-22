@@ -12,6 +12,10 @@ import Recruit from './pages/Recruit_us'
 import Our_Team from './pages/our_team.jsx'
 import Past_Recruiters from './pages/past_Recruiters.jsx'
 import Resources from './pages/resources.jsx'
+import Student_Programs from './pages/student_programs.jsx'
+import Library_Resources from './pages/library_resources.jsx'
+import Video_Resources from './pages/video_resources.jsx'
+import Recruiters_Guide from './pages/recruiters_guide.jsx'
 // import OurTeam from './pages/our_team'
 
 import Navbar from "./components/Navbar.jsx"
@@ -35,6 +39,10 @@ function App() {
         <Route path='/our-team' element={<><Our_Team /></>} />
         <Route path='/past-recruiters' element={<><Past_Recruiters /></>} />
         <Route path='/resources' element={<><Resources /></>} />
+        <Route path='/student-programs' element={<><Student_Programs /></>} />
+        <Route path='/library-resources' element={<><Library_Resources /></>} />
+        <Route path='/video-resources' element={<><Video_Resources /></>} />
+        <Route path='/recruiters-guide' element={<><Recruiters_Guide /></>} />
       </Routes>
       <Footer/>
     </>
