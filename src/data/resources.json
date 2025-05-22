@@ -1,0 +1,60 @@
+[
+  {
+    "id": 0,
+    "title": "INF Form",
+    "icon": "📋",
+    "description": "Individual Notification Form - Required for all placement registrations. This form contains your personal and academic details for company applications.",
+    "isImportant": true,
+    "downloadName": "INF Form",
+    "filePath": "/documents/inf-form.pdf",
+    "actionType": "download"
+  },
+  {
+    "id": 1,
+    "title": "JNF Form",
+    "icon": "📝",
+    "description": "Job Notification Form - Essential document for job applications through the placement cell. Contains detailed job descriptions and requirements.",
+    "isImportant": true,
+    "downloadName": "JNF Form",
+    "filePath": "/documents/jnf-form.pdf",
+    "actionType": "download"
+  },
+  {
+    "id": 2,
+    "title": "Placement Cell Brochure",
+    "icon": "📖",
+    "description": "Complete overview of our placement cell services, statistics, and procedures. Essential reading for understanding the placement process.",
+    "isImportant": false,
+    "downloadName": "Placement Cell Brochure",
+    "filePath": "/documents/placement-brochure.pdf",
+    "actionType": "download"
+  },
+  {
+    "id": 3,
+    "title": "AIPC Guidelines",
+    "icon": "⚖️",
+    "description": "All India Placement Cell Guidelines - Official rules and regulations governing the placement process. Must read for all students.",
+    "isImportant": false,
+    "downloadName": "AIPC Guidelines",
+    "filePath": "/documents/aipc-guidelines.pdf",
+    "actionType": "download"
+  },
+  {
+    "id": 4,
+    "title": "Library Resources",
+    "icon": "📚",
+    "description": "Comprehensive collection of placement preparation materials, interview guides, and company-specific resources available in our library.",
+    "isImportant": false,
+    "navigateUrl": "/library-resources",
+    "actionType": "navigate"
+  },
+  {
+    "id": 5,
+    "title": "Video Resources",
+    "icon": "🎥",
+    "description": "Video tutorials, mock interviews, company presentations, and placement guidance sessions. Perfect for visual learning and interview preparation.",
+    "isImportant": false,
+    "navigateUrl": "/video-resources",
+    "actionType": "navigate"
+  }
+]
