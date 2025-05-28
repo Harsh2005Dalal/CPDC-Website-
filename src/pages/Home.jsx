@@ -6,7 +6,7 @@ import AnnouncementSlider from '../components/Announcements.jsx'
 
 const Home = () => {
   return (
-    <div className="bg-image min-h-screen">
+    <div className="bg-image min-h-screen w-full h-full bg-cover bg-center bg-no-repeat text-black text-2xl bg-blend-lighten" style="background-image: linear-gradient(rgba(104, 104, 104, 0.4), rgba(100, 100, 100, 0.4)), url('../assets/spiral.jpg');">
       <AnnouncementSlider />
       
       {/* Hero Section */}
