@@ -48,7 +48,7 @@ const Navbar = () => {
           <div className="buttons flex flex-row items-center gap-6 text-black">
             
             {/* Main Navigation Buttons */}
-            <Link to='/recruit-us'>
+            <Link to='/why-recruit'>
               <button 
                 onMouseEnter={() => {
                   setIsRecruitersDropdownOpen(false);
@@ -158,7 +158,7 @@ const Navbar = () => {
             </div>
           </div>
 
-          <div className="logo2 ml-4">
+          {/* <div className="logo2 ml-4">
             <Link to='/iitRopar'>
               <img 
                 src={iitlogo} 
@@ -166,7 +166,7 @@ const Navbar = () => {
                 className='h-14 lg:h-16 p-1 invert transition-transform hover:scale-105' 
               />
             </Link>
-          </div>
+          </div> */}
         </div>
 
         {/* Mobile Menu Button */}
@@ -239,7 +239,7 @@ const Navbar = () => {
             </div>
             
             {/* IIT Logo in Mobile Menu */}
-            <div className="pt-4 border-t border-blue-200 mt-4">
+            {/* <div className="pt-4 border-t border-blue-200 mt-4">
               <Link to='/iitRopar' onClick={toggleMenu}>
                 <div className="flex items-center gap-3 px-4 py-2 hover:bg-blue-200 rounded-lg transition-colors duration-200">
                   <img 
@@ -250,7 +250,7 @@ const Navbar = () => {
                   <span className="font-medium text-base">IIT Ropar</span>
                 </div>
               </Link>
-            </div>
+            </div> */}
           </div>
         </div>
       )}

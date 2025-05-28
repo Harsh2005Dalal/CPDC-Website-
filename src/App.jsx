@@ -16,6 +16,9 @@ import Student_Programs from './pages/student_programs.jsx'
 import Library_Resources from './pages/library_resources.jsx'
 import Video_Resources from './pages/video_resources.jsx'
 import Recruiters_Guide from './pages/recruiters_guide.jsx'
+import Why_Recruit from './pages/why_recruit.jsx'
+import Recruiter_Portal from './pages/recruiter_portal.jsx'
+import Contact_Us from './pages/contact_us.jsx'
 // import OurTeam from './pages/our_team'
 
 import Navbar from "./components/Navbar.jsx"
@@ -43,6 +46,9 @@ function App() {
         <Route path='/library-resources' element={<><Library_Resources /></>} />
         <Route path='/video-resources' element={<><Video_Resources /></>} />
         <Route path='/recruiters-guide' element={<><Recruiters_Guide /></>} />
+        <Route path='/why-recruit' element={<><Why_Recruit /></>} />
+        <Route path='/recruiters-portal' element={<><Recruiter_Portal /></>} />
+        <Route path='/contact-us' element={<><Contact_Us /></>} />
       </Routes>
       <Footer/>
     </>

@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import processStepsData from '../data/recruiters_guide.json'
 import { 
   Building2, 
   FileText, 
@@ -16,34 +17,53 @@ import {
   Download
 } from 'lucide-react';
 
-import processSteps from '../data/recruiters_guide.json'
+import {Link} from 'react-router'
 
 const RecruiterProcess = () => {
   const [expandedStep, setExpandedStep] = useState(null);
 
+  // Icon mapping object - maps icon names to actual components
+  const iconMap = {
+    Building2: Building2,
+    FileText: FileText,
+    Users: Users,
+    CheckCircle: CheckCircle,
+    Award: Award,
+    Clock: Clock,
+    Briefcase: Briefcase
+  };
 
-  const benefits = [
+  // JSON data with icon names as strings
+
+
+  const benefitsData = [
     {
-      icon: <Users className="w-8 h-8" />,
+      iconName: "Users",
       title: "Quality Talent Pool",
       description: "Access to top-performing students from various engineering disciplines"
     },
     {
-      icon: <Award className="w-8 h-8" />,
+      iconName: "Award",
       title: "Pre-screened Candidates",
       description: "Students are pre-screened based on academic performance and skills"
     },
     {
-      icon: <Clock className="w-8 h-8" />,
+      iconName: "Clock",
       title: "Streamlined Process",
       description: "Efficient recruitment process with dedicated placement team support"
     },
     {
-      icon: <Briefcase className="w-8 h-8" />,
+      iconName: "Briefcase",
       title: "Industry-Ready Graduates",
       description: "Students trained with latest industry practices and technologies"
     }
   ];
+
+  // Function to render icon from string name
+  const renderIcon = (iconName, className = "w-6 h-6") => {
+    const IconComponent = iconMap[iconName];
+    return IconComponent ? <IconComponent className={className} /> : null;
+  };
 
   const toggleStep = (stepId) => {
     setExpandedStep(expandedStep === stepId ? null : stepId);
@@ -89,10 +109,10 @@ const RecruiterProcess = () => {
           </div>
 
           <div className="space-y-6">
-            {processSteps.map((step, index) => (
+            {processStepsData.map((step, index) => (
               <div key={step.id} className="relative">
                 {/* Timeline Line */}
-                {index < processSteps.length - 1 && (
+                {index < processStepsData.length - 1 && (
                   <div className="absolute left-6 top-16 w-0.5 h-16 bg-blue-200"></div>
                 )}
                 
@@ -102,7 +122,7 @@ const RecruiterProcess = () => {
                     onClick={() => toggleStep(step.id)}
                   >
                     <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-6">
-                      {step.icon}
+                      {renderIcon(step.iconName)}
                     </div>
                     <div className="flex-1">
                       <div className="flex items-center justify-between">
@@ -169,10 +189,10 @@ const RecruiterProcess = () => {
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {benefits.map((benefit, index) => (
+            {benefitsData.map((benefit, index) => (
               <div key={index} className="bg-white rounded-xl p-6 shadow-md hover:shadow-lg transition-shadow duration-300 text-center">
                 <div className="w-16 h-16 bg-blue-100 rounded-full flex items-center justify-center mx-auto mb-4 text-blue-600">
-                  {benefit.icon}
+                  {renderIcon(benefit.iconName, "w-8 h-8")}
                 </div>
                 <h3 className="text-lg font-semibold text-gray-900 mb-2">{benefit.title}</h3>
                 <p className="text-gray-600 text-sm">{benefit.description}</p>
@@ -217,33 +237,33 @@ const RecruiterProcess = () => {
             <div className="space-y-4">
               <button className="w-full flex items-center justify-between p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors duration-200">
                 <div className="flex items-center">
-                  <Download className="w-5 h-5 text-blue-600 mr-3" />
+                  <Link to='/resources'><Download className="w-5 h-5 text-blue-600 mr-3" />
                   <div className="text-left">
                     <p className="font-medium text-gray-900">Company Registration Form</p>
                     <p className="text-sm text-gray-600">Required for initial registration</p>
-                  </div>
+                  </div></Link>
                 </div>
                 <ArrowRight className="w-5 h-5 text-blue-600" />
               </button>
               
               <button className="w-full flex items-center justify-between p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors duration-200">
                 <div className="flex items-center">
-                  <Download className="w-5 h-5 text-blue-600 mr-3" />
+                  <Link to='/placement-stats'><Download className="w-5 h-5 text-blue-600 mr-3" />
                   <div className="text-left">
                     <p className="font-medium text-gray-900">Student Database</p>
                     <p className="text-sm text-gray-600">Statistics and branch-wise details</p>
-                  </div>
+                  </div></Link>
                 </div>
                 <ArrowRight className="w-5 h-5 text-blue-600" />
               </button>
               
               <button className="w-full flex items-center justify-between p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors duration-200">
                 <div className="flex items-center">
-                  <Download className="w-5 h-5 text-blue-600 mr-3" />
+                  <Link to='/resources'><Download className="w-5 h-5 text-blue-600 mr-3" />
                   <div className="text-left">
                     <p className="font-medium text-gray-900">Placement Brochure</p>
                     <p className="text-sm text-gray-600">Complete placement information</p>
-                  </div>
+                  </div></Link>
                 </div>
                 <ArrowRight className="w-5 h-5 text-blue-600" />
               </button>
@@ -259,12 +279,12 @@ const RecruiterProcess = () => {
             Begin your recruitment journey with us today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <button className="bg-white text-blue-700 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors duration-200">
+            <Link to='/recruiter-portal'><button className="bg-white text-blue-700 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors duration-200">
               Register Your Company
-            </button>
-            <button className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-700 transition-colors duration-200">
+            </button></Link>
+            {/* <button className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-700 transition-colors duration-200">
               Schedule a Call
-            </button>
+            </button> */}
           </div>
         </div>
       </div>

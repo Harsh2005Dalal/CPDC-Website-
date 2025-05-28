@@ -1,97 +1,97 @@
 [
-    {
-      "id": 1,
-      "title": "Company Registration",
-      "icon": "<Building2 className=\"w-6 h-6\" />",
-      "duration": "1-2 Days",
-      "description": "Submit your company details and requirements",
-      "details": [
-        "Fill out the company registration form with complete details",
-        "Provide company profile, job descriptions, and requirements",
-        "Submit necessary documents (company brochure, offer letter format)",
-        "Our team will verify and approve your registration within 48 hours"
-      ],
-      "requirements": [
-        "Company registration certificate",
-        "Detailed job description",
-        "Package details and benefits",
-        "Contact person information"
-      ]
-    },
-    {
-      "id": 2,
-      "title": "Pre-Placement Talk",
-      "icon": "<Users className=\"w-6 h-6\" />",
-      "duration": "30-45 Minutes",
-      "description": "Present your company to interested students",
-      "details": [
-        "Schedule a presentation slot with our placement team",
-        "Present company overview, culture, and opportunities",
-        "Interact with students and answer their queries",
-        "Share insights about job roles and career growth"
-      ],
-      "requirements": [
-        "Presentation materials",
-        "Company representatives",
-        "Technical requirements (projector, etc.)",
-        "Q&A preparation"
-      ]
-    },
-    {
-      "id": 3,
-      "title": "Student Shortlisting",
-      "icon": "<FileText className=\"w-6 h-6\" />",
-      "duration": "2-3 Days",
-      "description": "Review and shortlist eligible candidates",
-      "details": [
-        "Receive resumes of eligible students based on your criteria",
-        "Review academic records and project portfolios",
-        "Shortlist candidates for the selection process",
-        "Communicate shortlisted candidates to placement cell"
-      ],
-      "requirements": [
-        "Defined selection criteria",
-        "CGPA/percentage requirements",
-        "Technical skill preferences",
-        "Branch-wise requirements"
-      ]
-    },
-    {
-      "id": 4,
-      "title": "Selection Process",
-      "icon": "<CheckCircle className=\"w-6 h-6\" />",
-      "duration": "1 Day",
-      "description": "Conduct interviews and assessments",
-      "details": [
-        "Written test/online assessment (if required)",
-        "Technical interview rounds",
-        "HR interview and culture fit assessment",
-        "Final selection and result declaration"
-      ],
-      "requirements": [
-        "Interview panel setup",
-        "Technical assessment materials",
-        "Evaluation criteria",
-        "Result timeline commitment"
-      ]
-    },
-    {
-      "id": 5,
-      "title": "Offer & Onboarding",
-      "icon": "<Award className=\"w-6 h-6\" />",
-      "duration": "1-2 Weeks",
-      "description": "Extend offers and complete formalities",
-      "details": [
-        "Issue offer letters to selected candidates",
-        "Complete documentation and background verification",
-        "Provide joining instructions and onboarding details",
-        "Coordinate with placement cell for final formalities"
-      ],
-      "requirements": [
-        "Offer letter templates",
-        "Joining date confirmation",
-        "Documentation checklist",
-        "Onboarding materials"
-      ]
-    }
-  ]
+  {
+    "id": 1,
+    "title": "Company Registration",
+    "iconName": "Building2", 
+    "duration": "1-2 Days",
+    "description": "Submit your company details and requirements",
+    "details": [
+      "Fill out the company registration form with complete details",
+      "Provide company profile, job descriptions, and requirements",
+      "Submit necessary documents (company brochure, offer letter format)",
+      "Our team will verify and approve your registration within 48 hours"
+    ],
+    "requirements": [
+      "Company registration certificate",
+      "Detailed job description",
+      "Package details and benefits",
+      "Contact person information"
+    ]
+  },
+  {
+    "id": 2,
+    "title": "Pre-Placement Talk",
+    "iconName": "Users",
+    "duration": "30-45 Minutes",
+    "description": "Present your company to interested students",
+    "details": [
+      "Schedule a presentation slot with our placement team",
+      "Present company overview, culture, and opportunities",
+      "Interact with students and answer their queries",
+      "Share insights about job roles and career growth"
+    ],
+    "requirements": [
+      "Presentation materials",
+      "Company representatives",
+      "Technical requirements (projector, etc.)",
+      "Q&A preparation"
+    ]
+  },
+  {
+    "id": 3,
+    "title": "Student Shortlisting",
+    "iconName": "FileText",
+    "duration": "2-3 Days",
+    "description": "Review and shortlist eligible candidates",
+    "details": [
+      "Receive resumes of eligible students based on your criteria",
+      "Review academic records and project portfolios",
+      "Shortlist candidates for the selection process",
+      "Communicate shortlisted candidates to placement cell"
+    ],
+    "requirements": [
+      "Defined selection criteria",
+      "CGPA/percentage requirements",
+      "Technical skill preferences",
+      "Branch-wise requirements"
+    ]
+  },
+  {
+    "id": 4,
+    "title": "Selection Process",
+    "iconName": "CheckCircle",
+    "duration": "1 Day",
+    "description": "Conduct interviews and assessments",
+    "details": [
+      "Written test/online assessment (if required)",
+      "Technical interview rounds",
+      "HR interview and culture fit assessment",
+      "Final selection and result declaration"
+    ],
+    "requirements": [
+      "Interview panel setup",
+      "Technical assessment materials",
+      "Evaluation criteria",
+      "Result timeline commitment"
+    ]
+  },
+  {
+    "id": 5,
+    "title": "Offer & Onboarding",
+    "iconName": "Award",
+    "duration": "1-2 Weeks",
+    "description": "Extend offers and complete formalities",
+    "details": [
+      "Issue offer letters to selected candidates",
+      "Complete documentation and background verification",
+      "Provide joining instructions and onboarding details",
+      "Coordinate with placement cell for final formalities"
+    ],
+    "requirements": [
+      "Offer letter templates",
+      "Joining date confirmation",
+      "Documentation checklist",
+      "Onboarding materials"
+    ]
+  }
+]

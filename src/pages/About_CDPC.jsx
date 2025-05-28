@@ -131,7 +131,7 @@ const PlacementCell = () => {
             Discover the exceptional talent at IIT Ropar and find your organization's next generation of leaders and innovators.
           </p>
           <Link 
-            to="/" 
+            to="/recruiter-portal" 
             className="inline-block bg-white text-blue-900 px-6 py-3 rounded font-semibold transition-all duration-300 ease-in-out hover:-translate-y-1 hover:shadow-lg"
           >
             Recruit From IIT Ropar
