@@ -118,7 +118,7 @@ const Navbar = () => {
                       📖 Recruiter&apos;s Guide
                     </div>
                   </Link>
-                  <Link to="/recruiters-portal" onClick={closeRecruitersDropdown}>
+                  <Link to="/recruiter-portal" onClick={closeRecruitersDropdown}>
                     <div className="px-4 py-2.5 hover:bg-gray-50 cursor-pointer text-gray-700 hover:text-blue-600 transition-colors duration-200">
                       🚪 Recruiter&apos;s Portal
                     </div>
@@ -259,7 +259,7 @@ const Navbar = () => {
                   📖 Recruiter&apos;s Guide
                 </button>
               </Link>
-              <Link to="/recruiters-portal" onClick={toggleMenu}>
+              <Link to="/recruiter-portal" onClick={toggleMenu}>
                 <button 
                   className="w-full text-left font-medium text-base px-6 py-2.5 text-gray-200 hover:bg-blue-100 rounded-lg transition-colors duration-200 hover:text-gray-800"
                   type="button"

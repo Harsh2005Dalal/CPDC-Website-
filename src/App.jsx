@@ -38,7 +38,7 @@ function App() {
         <Route path='/video-resources' element={<Video_Resources />} />
         <Route path='/recruiters-guide' element={<Recruiters_Guide />} />
         <Route path='/why-recruit' element={<Why_Recruit />} />
-        <Route path='/recruiters-portal' element={<Recruiter_Portal />} />
+        <Route path='/recruiter-portal' element={<Recruiter_Portal />} />
         <Route path='/contact-us' element={<Contact_Us />} />
       </Routes>
       <Footer/>

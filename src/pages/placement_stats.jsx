@@ -1,10 +1,44 @@
 import React, { useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line, Area, AreaChart } from 'recharts';
 import { TrendingUp, Users, Award, Building, ChevronDown, Calendar, GraduationCap } from 'lucide-react';
-import yearlyPlacementData from '../data/yearlyPlacementData.json';
-import branchWiseData from '../data/branchWiseData.json';
-import studentDemographics from '../data/studentDemographicsData.json';
-import topRecruiters from '../data/topRecruiters.json';
+
+// Mock data - replace with actual imports
+const yearlyPlacementData = [
+  { year: '2020', placed: 180, packages: 195 },
+  { year: '2021', placed: 200, packages: 220 },
+  { year: '2022', placed: 210, packages: 235 },
+  { year: '2023', placed: 215, packages: 240 },
+  { year: '2024', placed: 238, packages: 275 }
+];
+
+const branchWiseData = [
+  { branch: 'Computer Science', placed: 45, total: 48, percentage: 93.8, avgPackage: 22.5 },
+  { branch: 'Electronics & Communication', placed: 38, total: 42, percentage: 90.5, avgPackage: 19.2 },
+  { branch: 'Mechanical Engineering', placed: 35, total: 40, percentage: 87.5, avgPackage: 16.8 },
+  { branch: 'Civil Engineering', placed: 30, total: 35, percentage: 85.7, avgPackage: 15.5 },
+  { branch: 'Chemical Engineering', placed: 28, total: 32, percentage: 87.5, avgPackage: 17.2 },
+  { branch: 'Electrical Engineering', placed: 32, total: 36, percentage: 88.9, avgPackage: 18.1 },
+  { branch: 'Metallurgical Engineering', placed: 18, total: 22, percentage: 81.8, avgPackage: 16.2 },
+  { branch: 'Biomedical Engineering', placed: 12, total: 15, percentage: 80.0, avgPackage: 15.8 }
+];
+
+const studentDemographics = [
+  { name: 'Computer Science', students: 48 },
+  { name: 'Electronics & Communication', students: 42 },
+  { name: 'Mechanical Engineering', students: 40 },
+  { name: 'Civil Engineering', students: 35 },
+  { name: 'Chemical Engineering', students: 32 },
+  { name: 'Electrical Engineering', students: 36 },
+  { name: 'Metallurgical Engineering', students: 22 },
+  { name: 'Biomedical Engineering', students: 15 }
+];
+
+const topRecruiters = [
+  'Microsoft', 'Google', 'Amazon', 'Adobe', 'Samsung', 'Intel', 'Qualcomm', 'NVIDIA',
+  'IBM', 'Oracle', 'Cisco', 'VMware', 'Salesforce', 'Goldman Sachs', 'Morgan Stanley', 'JP Morgan',
+  'Deloitte', 'PwC', 'EY', 'KPMG', 'Accenture', 'TCS', 'Infosys', 'Wipro',
+  'L&T', 'Reliance', 'ONGC', 'ISRO', 'DRDO', 'Bajaj Auto', 'Mahindra', 'Tata Motors'
+];
 
 const PlacementStatsPage = () => {
   const [selectedYear, setSelectedYear] = useState('2024');
@@ -12,12 +46,18 @@ const PlacementStatsPage = () => {
 
   const COLORS = ['#3B82F6', '#8B5CF6', '#10B981', '#F59E0B', '#EF4444', '#06B6D4', '#84CC16', '#F97316'];
 
-  // Custom label function for pie chart
-  const renderCustomLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, students }) => {
+  // Custom label function for pie chart to show student count
+  const renderCustomLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, students, name }) => {
     const RADIAN = Math.PI / 180;
     const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
     const y = cy + radius * Math.sin(-midAngle * RADIAN);
+
+    // Only show labels for segments that are large enough
+    const totalStudents = studentDemographics.reduce((total, item) => total + item.students, 0);
+    const percentage = (students / totalStudents) * 100;
+    
+    if (percentage < 8) return null; // Don't show labels for small segments
 
     return (
       <text 
@@ -26,13 +66,17 @@ const PlacementStatsPage = () => {
         fill="white" 
         textAnchor={x > cx ? 'start' : 'end'} 
         dominantBaseline="central"
-        fontSize="12"
+        fontSize="14"
         fontWeight="bold"
+        style={{ textShadow: '1px 1px 2px rgba(0,0,0,0.7)' }}
       >
         {students}
       </text>
     );
   };
+
+  // Calculate total students for center display
+  const totalStudents = studentDemographics.reduce((total, item) => total + item.students, 0);
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100 p-4 sm:p-6">
@@ -213,14 +257,15 @@ const PlacementStatsPage = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-4 sm:mb-8">
           <div className="bg-white rounded-xl shadow-lg p-4 sm:p-8">
             <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-4 sm:mb-6">Student Demographics</h2>
-            <div className="h-80 w-full">
-              <ResponsiveContainer width="100%" height="100%">
+            <div className="h-120 w-full relative pt-4">
+              <ResponsiveContainer width="100%" height="90%">
                 <PieChart>
                   <Pie
                     data={studentDemographics}
                     cx="50%"
-                    cy="40%"
-                    outerRadius="75%"
+                    cy="50%"
+                    outerRadius="90%"
+                    innerRadius="35%"
                     fill="#8884d8"
                     dataKey="students"
                     nameKey="name"
@@ -238,18 +283,27 @@ const PlacementStatsPage = () => {
                       borderRadius: '8px',
                       fontSize: '16px'
                     }} 
+                    formatter={(value, name) => [value, name]}
                   />
-                  <Legend 
+                  {/* <Legend 
                     verticalAlign="bottom" 
-                    height={50}
+                    height={60}
                     iconType="circle"
                     wrapperStyle={{ 
-                      fontSize: '14px', 
-                      paddingTop: '12px'
+                      fontSize: '16px', 
+                      paddingTop: '16px',
+                      fontWeight: '500'
                     }}
-                  />
+                  /> */}
                 </PieChart>
               </ResponsiveContainer>
+              {/* Center text overlay */}
+              {/* <div className="absolute inset-0 flex items-center justify-center pointer-events-none">
+                <div className="text-center" style={{ marginTop: '10px' }}>
+                  <div className="text-2xl sm:text-3xl font-bold text-gray-800">{totalStudents}</div>
+                  <div className="text-sm sm:text-base text-gray-600 font-medium">Total Students</div>
+                </div>
+              </div> */}
             </div>
           </div>
 
