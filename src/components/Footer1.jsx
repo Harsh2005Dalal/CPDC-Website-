@@ -1,6 +1,5 @@
-import { FaFacebook, FaInstagram, FaLinkedin, FaMailBulk, FaMailchimp, FaTwitter, FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
+import { FaFacebook, FaInstagram, FaLinkedin, FaMailBulk, FaPhone, FaEnvelope, FaMapMarkerAlt } from "react-icons/fa";
 import cdpc from '../assets/logocdpc.png';
-import logoiit from '../assets/logoiit.png';
 import { Link } from 'react-router-dom';
 
 export default function Footer() {
@@ -8,9 +7,12 @@ export default function Footer() {
     <footer className="bg-blue-100 text-slate-800 relative overflow-hidden">
       {/* Subtle Background Pattern */}
       <div className="absolute inset-0 opacity-30">
-        <div className="absolute inset-0" style={{
-          backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%236366f1' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
-        }}></div>
+        <div 
+          className="absolute inset-0" 
+          style={{
+            backgroundImage: `url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%236366f1' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='1'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E")`,
+          }}
+        />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 py-12 relative z-10">
@@ -22,8 +24,9 @@ export default function Footer() {
             <div className="bg-white rounded-xl p-4 w-fit mx-auto mb-4 shadow-md border border-blue-200">
               <img 
                 src={cdpc} 
-                alt="IIT Ropar Logo" 
-                className="w-20 h-20 object-contain invert" 
+                alt="CDPC IIT Ropar Logo" 
+                className="w-20 h-20 object-contain invert"
+                loading="lazy"
               />
             </div>
             <h2 className="text-2xl font-bold text-slate-800 mb-3">CDPC, IIT Ropar</h2>
@@ -37,9 +40,9 @@ export default function Footer() {
             
             {/* Navigation Buttons - More Prominent */}
             <div className="grid grid-cols-2 gap-3 max-w-sm mx-auto">
-              <Link to='/our-team' className="group">
+              <Link to="/our-team" className="group">
                 <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-4 py-3 rounded-xl font-semibold text-center shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl group-hover:from-blue-700 group-hover:to-blue-800 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
                   <span className="relative flex items-center justify-center text-sm">
                     <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
@@ -49,9 +52,9 @@ export default function Footer() {
                 </div>
               </Link>
 
-              <Link to='/contact-us' className="group">
+              <Link to="/contact-us" className="group">
                 <div className="bg-gradient-to-r from-emerald-600 to-emerald-700 text-white px-4 py-3 rounded-xl font-semibold text-center shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl group-hover:from-emerald-700 group-hover:to-emerald-800 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
                   <span className="relative flex items-center justify-center text-sm">
                     <svg className="w-4 h-4 mr-2" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
@@ -152,8 +155,9 @@ export default function Footer() {
               <div className="bg-white rounded-xl p-4 shadow-md border border-blue-200">
                 <img 
                   src={cdpc} 
-                  alt="IIT Ropar Logo" 
-                  className="w-16 h-16 object-contain invert" 
+                  alt="CDPC IIT Ropar Logo" 
+                  className="w-16 h-16 object-contain invert"
+                  loading="lazy"
                 />
               </div>
               <div>
@@ -171,9 +175,9 @@ export default function Footer() {
 
             {/* Navigation Buttons - Right Side */}
             <div className="flex space-x-4">
-              <Link to='/our-team' className="group">
+              <Link to="/our-team" className="group">
                 <div className="bg-gradient-to-r from-blue-600 to-blue-700 text-white px-6 py-3 rounded-xl font-bold shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl group-hover:from-blue-700 group-hover:to-blue-800 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
                   <span className="relative flex items-center">
                     <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"/>
@@ -186,9 +190,9 @@ export default function Footer() {
                 </div>
               </Link>
 
-              <Link to='/contact-us' className="group">
+              <Link to="/contact-us" className="group">
                 <div className="bg-gradient-to-r from-emerald-600 to-emerald-700 text-white px-6 py-3 rounded-xl font-bold shadow-lg transform transition-all duration-300 hover:scale-105 hover:shadow-xl group-hover:from-emerald-700 group-hover:to-emerald-800 relative overflow-hidden">
-                  <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300"></div>
+                  <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-10 transition-opacity duration-300" />
                   <span className="relative flex items-center">
                     <svg className="w-5 h-5 mr-2" fill="currentColor" viewBox="0 0 20 20">
                       <path d="M2.003 5.884L10 9.882l7.997-3.998A2 2 0 0016 4H4a2 2 0 00-1.997 1.884z"/>
@@ -291,20 +295,23 @@ export default function Footer() {
               className="bg-white p-3 rounded-full text-slate-400 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 transform hover:scale-110 shadow-sm border border-slate-200"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="LinkedIn"
             >
               <FaLinkedin size={20} />
             </a>
             <a 
               href="mailto:ug.placement@iitrpr.ac.in" 
               className="bg-white p-3 rounded-full text-slate-400 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 transform hover:scale-110 shadow-sm border border-slate-200"
+              aria-label="Email"
             >
               <FaMailBulk size={20} />
             </a>
             <a 
-              href="#" 
+              href="https://www.instagram.com/" 
               className="bg-white p-3 rounded-full text-slate-400 hover:text-blue-600 hover:bg-blue-50 transition-all duration-200 transform hover:scale-110 shadow-sm border border-slate-200"
               target="_blank"
               rel="noopener noreferrer"
+              aria-label="Instagram"
             >
               <FaInstagram size={20} />
             </a>

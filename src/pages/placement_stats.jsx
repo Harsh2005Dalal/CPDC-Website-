@@ -1,20 +1,19 @@
 import React, { useState } from 'react';
 import { BarChart, Bar, XAxis, YAxis, CartesianGrid, Tooltip, Legend, ResponsiveContainer, PieChart, Pie, Cell, LineChart, Line, Area, AreaChart } from 'recharts';
 import { TrendingUp, Users, Award, Building, ChevronDown, Calendar, GraduationCap } from 'lucide-react';
-import yearlyPlacementData from '../data/yearlyPlacementData.json'
-import branchWiseData from '../data/branchWiseData.json'
-import studentDemographics from '../data/studentDemographicsData.json'
-import topRecruiters from '../data/topRecruiters.json'
+import yearlyPlacementData from '../data/yearlyPlacementData.json';
+import branchWiseData from '../data/branchWiseData.json';
+import studentDemographics from '../data/studentDemographicsData.json';
+import topRecruiters from '../data/topRecruiters.json';
 
 const PlacementStatsPage = () => {
   const [selectedYear, setSelectedYear] = useState('2024');
   const [selectedBranch, setSelectedBranch] = useState('All');
 
-
   const COLORS = ['#3B82F6', '#8B5CF6', '#10B981', '#F59E0B', '#EF4444', '#06B6D4', '#84CC16', '#F97316'];
 
   // Custom label function for pie chart
-  const renderCustomLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, students, index }) => {
+  const renderCustomLabel = ({ cx, cy, midAngle, innerRadius, outerRadius, students }) => {
     const RADIAN = Math.PI / 180;
     const radius = innerRadius + (outerRadius - innerRadius) * 0.5;
     const x = cx + radius * Math.cos(-midAngle * RADIAN);
@@ -49,7 +48,7 @@ const PlacementStatsPage = () => {
         </div>
 
         {/* Key Statistics Cards */}
-        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12 ">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-4 sm:gap-6 mb-8 sm:mb-12">
           <div className="bg-white rounded-xl shadow-lg p-4 sm:p-6 border-l-4 border-blue-500 relative z-10 transition-all duration-300 ease-in-out hover:-translate-y-2 hover:shadow-xl hover:shadow-blue-100 hover:z-20 hover:cursor-pointer">
             <div className="flex items-center justify-between">
               <div>
@@ -61,7 +60,7 @@ const PlacementStatsPage = () => {
                 </p>
               </div>
               <div className="bg-blue-100 p-3 rounded-full">
-                <Users className="text-blue-600" size={20} sm:size={24} />
+                <Users className="text-blue-600" size={20} />
               </div>
             </div>
           </div>
@@ -77,7 +76,7 @@ const PlacementStatsPage = () => {
                 </p>
               </div>
               <div className="bg-green-100 p-3 rounded-full">
-                <Award className="text-green-600" size={20} sm:size={24} />
+                <Award className="text-green-600" size={20} />
               </div>
             </div>
           </div>
@@ -93,7 +92,7 @@ const PlacementStatsPage = () => {
                 </p>
               </div>
               <div className="bg-purple-100 p-3 rounded-full">
-                <GraduationCap className="text-purple-600" size={20} sm:size={24} />
+                <GraduationCap className="text-purple-600" size={20} />
               </div>
             </div>
           </div>
@@ -109,7 +108,7 @@ const PlacementStatsPage = () => {
                 </p>
               </div>
               <div className="bg-orange-100 p-3 rounded-full">
-                <Building className="text-orange-600" size={20} sm:size={24} />
+                <Building className="text-orange-600" size={20} />
               </div>
             </div>
           </div>
@@ -118,7 +117,7 @@ const PlacementStatsPage = () => {
         {/* Year-wise Placement Trend */}
         <div className="bg-white rounded-xl shadow-lg p-4 sm:p-8 mb-6 sm:mb-8">
           <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-4 sm:mb-6 flex items-center">
-            <Calendar className="mr-2 sm:mr-3 text-blue-600" size={20} sm:size={24} />
+            <Calendar className="mr-2 sm:mr-3 text-blue-600" size={20} />
             Year-wise Placement Trends
           </h2>
           <div className="h-64 sm:h-80">
@@ -214,7 +213,7 @@ const PlacementStatsPage = () => {
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-6 sm:gap-8 mb-4 sm:mb-8">
           <div className="bg-white rounded-xl shadow-lg p-4 sm:p-8">
             <h2 className="text-xl sm:text-2xl font-bold text-gray-800 mb-4 sm:mb-6">Student Demographics</h2>
-            <div className="h-130 w-full">
+            <div className="h-80 w-full">
               <ResponsiveContainer width="100%" height="100%">
                 <PieChart>
                   <Pie
@@ -245,9 +244,8 @@ const PlacementStatsPage = () => {
                     height={50}
                     iconType="circle"
                     wrapperStyle={{ 
-                      fontSize: '20px', 
-                      paddingTop: '12px',
-                      gap:'12px'
+                      fontSize: '14px', 
+                      paddingTop: '12px'
                     }}
                   />
                 </PieChart>
@@ -263,7 +261,7 @@ const PlacementStatsPage = () => {
                   <div className="flex items-center min-w-0 flex-1">
                     <div 
                       className="w-3 h-3 sm:w-4 sm:h-4 rounded-full mr-2 sm:mr-3 flex-shrink-0"
-                      style={{ backgroundColor: item.color }}
+                      style={{ backgroundColor: COLORS[index % COLORS.length] }}
                     ></div>
                     <span className="text-gray-700 font-medium text-sm sm:text-base truncate">{item.name}</span>
                   </div>

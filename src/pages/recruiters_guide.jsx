@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import processStepsData from '../data/recruiters_guide.json'
+import { Link } from 'react-router-dom';
 import { 
   Building2, 
   FileText, 
@@ -17,7 +17,32 @@ import {
   Download
 } from 'lucide-react';
 
-import {Link} from 'react-router'
+// Safe import with fallback
+let processStepsData = [];
+try {
+  processStepsData = require('../data/recruiters_guide.json');
+} catch (error) {
+  console.warn('recruiters_guide.json not found, using fallback data');
+  processStepsData = [
+    {
+      id: 1,
+      iconName: "FileText",
+      title: "Company Registration",
+      description: "Submit your company details and requirements",
+      duration: "1-2 days",
+      details: [
+        "Complete company registration form",
+        "Submit required documents",
+        "Provide job descriptions"
+      ],
+      requirements: [
+        "Valid company registration",
+        "HR contact details",
+        "Job requirements document"
+      ]
+    }
+  ];
+}
 
 const RecruiterProcess = () => {
   const [expandedStep, setExpandedStep] = useState(null);
@@ -30,11 +55,9 @@ const RecruiterProcess = () => {
     CheckCircle: CheckCircle,
     Award: Award,
     Clock: Clock,
-    Briefcase: Briefcase
+    Briefcase: Briefcase,
+    Calendar: Calendar
   };
-
-  // JSON data with icon names as strings
-
 
   const benefitsData = [
     {
@@ -59,15 +82,18 @@ const RecruiterProcess = () => {
     }
   ];
 
-  // Function to render icon from string name
+  // Function to render icon from string name with fallback
   const renderIcon = (iconName, className = "w-6 h-6") => {
     const IconComponent = iconMap[iconName];
-    return IconComponent ? <IconComponent className={className} /> : null;
+    return IconComponent ? <IconComponent className={className} /> : <FileText className={className} />;
   };
 
   const toggleStep = (stepId) => {
     setExpandedStep(expandedStep === stepId ? null : stepId);
   };
+
+  // Ensure processStepsData is an array and has valid structure
+  const safeProcessStepsData = Array.isArray(processStepsData) ? processStepsData : [];
 
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 to-blue-100">
@@ -108,77 +134,89 @@ const RecruiterProcess = () => {
             <p className="text-lg text-gray-600">A step-by-step guide to our recruitment process</p>
           </div>
 
-          <div className="space-y-6">
-            {processStepsData.map((step, index) => (
-              <div key={step.id} className="relative">
-                {/* Timeline Line */}
-                {index < processStepsData.length - 1 && (
-                  <div className="absolute left-6 top-16 w-0.5 h-16 bg-blue-200"></div>
-                )}
-                
-                <div className="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
-                  <div 
-                    className="flex items-center p-6 cursor-pointer"
-                    onClick={() => toggleStep(step.id)}
-                  >
-                    <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-6">
-                      {renderIcon(step.iconName)}
-                    </div>
-                    <div className="flex-1">
-                      <div className="flex items-center justify-between">
-                        <div>
-                          <h3 className="text-xl font-semibold text-gray-900 mb-1">
-                            Step {step.id}: {step.title}
-                          </h3>
-                          <p className="text-gray-600">{step.description}</p>
-                        </div>
-                        <div className="flex items-center space-x-4">
-                          <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">
-                            {step.duration}
-                          </span>
-                          <ChevronDown 
-                            className={`w-5 h-5 text-gray-400 transition-transform duration-200 ${
-                              expandedStep === step.id ? 'rotate-180' : ''
-                            }`} 
-                          />
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-
-                  {/* Expanded Content */}
-                  {expandedStep === step.id && (
-                    <div className="px-6 pb-6 border-t border-gray-100">
-                      <div className="grid md:grid-cols-2 gap-6 mt-6">
-                        <div>
-                          <h4 className="font-semibold text-gray-900 mb-3">Process Details</h4>
-                          <ul className="space-y-2">
-                            {step.details.map((detail, idx) => (
-                              <li key={idx} className="flex items-start">
-                                <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
-                                <span className="text-gray-600 text-sm">{detail}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                        <div>
-                          <h4 className="font-semibold text-gray-900 mb-3">Requirements</h4>
-                          <ul className="space-y-2">
-                            {step.requirements.map((req, idx) => (
-                              <li key={idx} className="flex items-start">
-                                <ArrowRight className="w-4 h-4 text-blue-500 mr-2 mt-0.5 flex-shrink-0" />
-                                <span className="text-gray-600 text-sm">{req}</span>
-                              </li>
-                            ))}
-                          </ul>
-                        </div>
-                      </div>
-                    </div>
+          {safeProcessStepsData.length > 0 ? (
+            <div className="space-y-6">
+              {safeProcessStepsData.map((step, index) => (
+                <div key={step.id || index} className="relative">
+                  {/* Timeline Line */}
+                  {index < safeProcessStepsData.length - 1 && (
+                    <div className="absolute left-6 top-16 w-0.5 h-16 bg-blue-200"></div>
                   )}
+                  
+                  <div className="bg-white rounded-xl shadow-md hover:shadow-lg transition-shadow duration-300">
+                    <div 
+                      className="flex items-center p-6 cursor-pointer"
+                      onClick={() => toggleStep(step.id || index)}
+                    >
+                      <div className="flex-shrink-0 w-12 h-12 bg-blue-100 rounded-full flex items-center justify-center text-blue-600 mr-6">
+                        {renderIcon(step.iconName)}
+                      </div>
+                      <div className="flex-1">
+                        <div className="flex items-center justify-between">
+                          <div>
+                            <h3 className="text-xl font-semibold text-gray-900 mb-1">
+                              Step {step.id || index + 1}: {step.title || 'Untitled Step'}
+                            </h3>
+                            <p className="text-gray-600">{step.description || 'No description available'}</p>
+                          </div>
+                          <div className="flex items-center space-x-4">
+                            <span className="bg-blue-100 text-blue-700 px-3 py-1 rounded-full text-sm font-medium">
+                              {step.duration || 'N/A'}
+                            </span>
+                            <ChevronDown 
+                              className={`w-5 h-5 text-gray-400 transition-transform duration-200 ${
+                                expandedStep === (step.id || index) ? 'rotate-180' : ''
+                              }`} 
+                            />
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+
+                    {/* Expanded Content */}
+                    {expandedStep === (step.id || index) && (
+                      <div className="px-6 pb-6 border-t border-gray-100">
+                        <div className="grid md:grid-cols-2 gap-6 mt-6">
+                          <div>
+                            <h4 className="font-semibold text-gray-900 mb-3">Process Details</h4>
+                            <ul className="space-y-2">
+                              {(step.details || []).map((detail, idx) => (
+                                <li key={idx} className="flex items-start">
+                                  <CheckCircle className="w-4 h-4 text-green-500 mr-2 mt-0.5 flex-shrink-0" />
+                                  <span className="text-gray-600 text-sm">{detail}</span>
+                                </li>
+                              ))}
+                              {(!step.details || step.details.length === 0) && (
+                                <li className="text-gray-500 text-sm">No details available</li>
+                              )}
+                            </ul>
+                          </div>
+                          <div>
+                            <h4 className="font-semibold text-gray-900 mb-3">Requirements</h4>
+                            <ul className="space-y-2">
+                              {(step.requirements || []).map((req, idx) => (
+                                <li key={idx} className="flex items-start">
+                                  <ArrowRight className="w-4 h-4 text-blue-500 mr-2 mt-0.5 flex-shrink-0" />
+                                  <span className="text-gray-600 text-sm">{req}</span>
+                                </li>
+                              ))}
+                              {(!step.requirements || step.requirements.length === 0) && (
+                                <li className="text-gray-500 text-sm">No requirements specified</li>
+                              )}
+                            </ul>
+                          </div>
+                        </div>
+                      </div>
+                    )}
+                  </div>
                 </div>
-              </div>
-            ))}
-          </div>
+              ))}
+            </div>
+          ) : (
+            <div className="text-center py-12 bg-white rounded-xl shadow-md">
+              <p className="text-gray-500">Process steps data is currently unavailable. Please check back later.</p>
+            </div>
+          )}
         </div>
 
         {/* Benefits Section */}
@@ -235,38 +273,38 @@ const RecruiterProcess = () => {
           <div className="bg-white rounded-xl shadow-md p-8">
             <h3 className="text-2xl font-bold text-gray-900 mb-6">Download Resources</h3>
             <div className="space-y-4">
-              <button className="w-full flex items-center justify-between p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors duration-200">
+              <Link to='/resources' className="w-full flex items-center justify-between p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors duration-200">
                 <div className="flex items-center">
-                  <Link to='/resources'><Download className="w-5 h-5 text-blue-600 mr-3" />
+                  <Download className="w-5 h-5 text-blue-600 mr-3" />
                   <div className="text-left">
                     <p className="font-medium text-gray-900">Company Registration Form</p>
                     <p className="text-sm text-gray-600">Required for initial registration</p>
-                  </div></Link>
+                  </div>
                 </div>
                 <ArrowRight className="w-5 h-5 text-blue-600" />
-              </button>
+              </Link>
               
-              <button className="w-full flex items-center justify-between p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors duration-200">
+              <Link to='/placement-stats' className="w-full flex items-center justify-between p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors duration-200">
                 <div className="flex items-center">
-                  <Link to='/placement-stats'><Download className="w-5 h-5 text-blue-600 mr-3" />
+                  <Download className="w-5 h-5 text-blue-600 mr-3" />
                   <div className="text-left">
                     <p className="font-medium text-gray-900">Student Database</p>
                     <p className="text-sm text-gray-600">Statistics and branch-wise details</p>
-                  </div></Link>
+                  </div>
                 </div>
                 <ArrowRight className="w-5 h-5 text-blue-600" />
-              </button>
+              </Link>
               
-              <button className="w-full flex items-center justify-between p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors duration-200">
+              <Link to='/resources' className="w-full flex items-center justify-between p-4 bg-blue-50 rounded-lg hover:bg-blue-100 transition-colors duration-200">
                 <div className="flex items-center">
-                  <Link to='/resources'><Download className="w-5 h-5 text-blue-600 mr-3" />
+                  <Download className="w-5 h-5 text-blue-600 mr-3" />
                   <div className="text-left">
                     <p className="font-medium text-gray-900">Placement Brochure</p>
                     <p className="text-sm text-gray-600">Complete placement information</p>
-                  </div></Link>
+                  </div>
                 </div>
                 <ArrowRight className="w-5 h-5 text-blue-600" />
-              </button>
+              </Link>
             </div>
           </div>
         </div>
@@ -279,12 +317,9 @@ const RecruiterProcess = () => {
             Begin your recruitment journey with us today.
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to='/recruiter-portal'><button className="bg-white text-blue-700 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors duration-200">
+            <Link to='/recruiter-portal' className="bg-white text-blue-700 px-8 py-3 rounded-lg font-semibold hover:bg-blue-50 transition-colors duration-200">
               Register Your Company
-            </button></Link>
-            {/* <button className="border-2 border-white text-white px-8 py-3 rounded-lg font-semibold hover:bg-white hover:text-blue-700 transition-colors duration-200">
-              Schedule a Call
-            </button> */}
+            </Link>
           </div>
         </div>
       </div>

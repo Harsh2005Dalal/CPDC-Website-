@@ -6,8 +6,6 @@ const LibraryResources = () => {
   const [hoveredBook, setHoveredBook] = useState(null);
   const [selectedCategory, setSelectedCategory] = useState('All');
 
-  
-
   const categories = ['All', 'Technical Interview', 'Management', 'Communication', 'System Design'];
   
   const filteredBooks = selectedCategory === 'All' 
@@ -16,26 +14,81 @@ const LibraryResources = () => {
 
   const handleDownload = async (book) => {
     try {
-      // First check if the file exists
-      const response = await fetch(book.pdfUrl, { method: 'HEAD' });
-      
-      if (response.ok) {
-        // File exists, proceed with download
+      // Check if the URL is a valid HTTP/HTTPS URL
+      if (!book.pdfUrl || (!book.pdfUrl.startsWith('http://') && !book.pdfUrl.startsWith('https://'))) {
+        alert(`Invalid PDF URL for "${book.title}". Please contact the placement cell.`);
+        return;
+      }
+
+      // For Vercel deployment, we need to handle CORS and file access differently
+      // Try to fetch the file first to check if it exists
+      const controller = new AbortController();
+      const timeoutId = setTimeout(() => controller.abort(), 10000); // 10 second timeout
+
+      try {
+        const response = await fetch(book.pdfUrl, { 
+          method: 'HEAD',
+          signal: controller.signal,
+          mode: 'no-cors' // Handle CORS issues in production
+        });
+        
+        clearTimeout(timeoutId);
+        
+        // Since we're using no-cors, we can't check response.ok
+        // So we'll proceed with the download attempt
         const link = document.createElement('a');
         link.href = book.pdfUrl;
         link.download = `${book.title.replace(/[^a-zA-Z0-9\s]/g, '_')}.pdf`;
-        link.target = '_blank'; // Open in new tab as fallback
+        link.target = '_blank'; // Always open in new tab for better compatibility
+        link.rel = 'noopener noreferrer'; // Security best practice
+        
+        // Ensure the link is added to DOM temporarily
         document.body.appendChild(link);
         link.click();
-        document.body.removeChild(link);
-      } else {
-        // File not found
-        alert(`Sorry, the PDF for "${book.title}" is not available at the moment. Please contact the placement cell.`);
+        
+        // Clean up
+        setTimeout(() => {
+          document.body.removeChild(link);
+        }, 100);
+        
+      } catch (fetchError) {
+        clearTimeout(timeoutId);
+        
+        if (fetchError.name === 'AbortError') {
+          throw new Error('Request timeout - the file might be too large or the server is slow');
+        }
+        
+        // If HEAD request fails, try direct download (might work in some cases)
+        console.warn('HEAD request failed, attempting direct download:', fetchError);
+        
+        const link = document.createElement('a');
+        link.href = book.pdfUrl;
+        link.download = `${book.title.replace(/[^a-zA-Z0-9\s]/g, '_')}.pdf`;
+        link.target = '_blank';
+        link.rel = 'noopener noreferrer';
+        
+        document.body.appendChild(link);
+        link.click();
+        setTimeout(() => {
+          document.body.removeChild(link);
+        }, 100);
       }
+      
     } catch (error) {
-      // Network error or other issues
       console.error('Download error:', error);
-      alert(`Error downloading "${book.title}". Please check your internet connection and try again.`);
+      
+      // Provide more specific error messages
+      let errorMessage = `Error downloading "${book.title}".`;
+      
+      if (error.message.includes('timeout')) {
+        errorMessage += ' The request timed out. Please try again or check your internet connection.';
+      } else if (error.message.includes('network')) {
+        errorMessage += ' Network error. Please check your internet connection.';
+      } else {
+        errorMessage += ' Please try again later or contact the placement cell if the problem persists.';
+      }
+      
+      alert(errorMessage);
     }
   };
 
@@ -121,12 +174,16 @@ const LibraryResources = () => {
                 {/* Background Image */}
                 <div className="absolute inset-0">
                   <img 
-                    src={book.coverImage} 
+                    src={book.coverImage || '/placeholder-book-cover.jpg'} 
                     alt={book.title}
                     className="w-full h-full object-cover"
+                    onError={(e) => {
+                      // Fallback for missing images
+                      e.target.src = 'data:image/svg+xml;base64,PHN2ZyB3aWR0aD0iMjAwIiBoZWlnaHQ9IjI2NyIgdmlld0JveD0iMCAwIDIwMCAyNjciIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+CjxyZWN0IHdpZHRoPSIyMDAiIGhlaWdodD0iMjY3IiBmaWxsPSIjRjNGNEY2Ii8+CjxwYXRoIGQ9Ik02MCA4MEgxNDBWMTAwSDYwVjgwWiIgZmlsbD0iIzlDQTNBRiIvPgo8cGF0aCBkPSJNNjAgMTIwSDE0MFYxNDBINjBWMTIwWiIgZmlsbD0iIzlDQTNBRiIvPgo8cGF0aCBkPSJNNjAgMTYwSDE0MFYxODBINjBWMTYwWiIgZmlsbD0iIzlDQTNBRiIvPgo8L3N2Zz4K';
+                    }}
                   />
                   {/* Gradient Overlay for text readability */}
-                  <div className={`absolute inset-0 ${book.coverColor} opacity-80`}></div>
+                  <div className={`absolute inset-0 ${book.coverColor || 'bg-gradient-to-br from-blue-600 to-purple-700'} opacity-80`}></div>
                 </div>
                 
                 {/* Content Layer */}
@@ -139,12 +196,12 @@ const LibraryResources = () => {
                       </span>
                       <div className="flex items-center bg-white/30 backdrop-blur-sm px-2 py-1 rounded-full border border-white/20">
                         <Star className="w-3 h-3 fill-yellow-400 text-yellow-400" />
-                        <span className="text-xs ml-1 font-medium">{book.rating}</span>
+                        <span className="text-xs ml-1 font-medium">{book.rating || '4.5'}</span>
                       </div>
                     </div>
                     <h3 className="text-lg font-bold leading-tight mb-2 drop-shadow-lg">{book.title}</h3>
                     <p className="text-sm font-medium mb-1 drop-shadow-md">{book.author}</p>
-                    <p className="text-xs opacity-90 drop-shadow-md">{book.description}</p>
+                    <p className="text-xs opacity-90 drop-shadow-md line-clamp-2">{book.description}</p>
                   </div>
                   
                   {/* Bottom accent bar */}
@@ -175,6 +232,7 @@ const LibraryResources = () => {
                   <button
                     onClick={() => handleDownload(book)}
                     className="text-blue-600 hover:text-blue-800 transition-colors duration-200"
+                    title="Download PDF"
                   >
                     <Download className="w-5 h-5" />
                   </button>

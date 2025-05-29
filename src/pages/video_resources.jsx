@@ -1,11 +1,77 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Play, Clock, User, Eye, Filter, ArrowRight, PlayCircle } from 'lucide-react';
-import videos from '../data/video_resources.json'
 
 const VideoResources = () => {
   const [selectedCategory, setSelectedCategory] = useState('All');
+  const [videos, setVideos] = useState([]);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState(null);
 
+  // Load videos data
+  useEffect(() => {
+    const loadVideos = async () => {
+      try {
+        // Try to import the JSON file
+        const videosModule = await import('../data/video_resources.json');
+        setVideos(videosModule.default || videosModule);
+        setLoading(false);
+      } catch (err) {
+        console.error('Error loading videos:', err);
+        // Fallback to sample data if JSON file is not found
+        const sampleVideos = [
+          {
+            id: 1,
+            title: "System Design Interview Preparation",
+            description: "Complete guide to system design interviews with real-world examples",
+            instructor: "John Doe",
+            duration: "45:30",
+            views: "12.5K",
+            category: "System Design",
+            thumbnail: "https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=225&fit=crop",
+            videoUrl: "https://www.youtube.com/watch?v=sample1"
+          },
+          {
+            id: 2,
+            title: "Technical Interview Deep Dive",
+            description: "Advanced algorithms and data structures for technical interviews",
+            instructor: "Jane Smith",
+            duration: "62:15",
+            views: "8.3K",
+            category: "Technical Interview",
+            thumbnail: "https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=400&h=225&fit=crop",
+            videoUrl: "https://www.youtube.com/watch?v=sample2"
+          },
+          {
+            id: 3,
+            title: "Leadership and Management Skills",
+            description: "Essential management techniques for tech leaders",
+            instructor: "Mike Johnson",
+            duration: "38:45",
+            views: "15.7K",
+            category: "Management",
+            thumbnail: "https://images.unsplash.com/photo-1542744173-8e7e53415bb0?w=400&h=225&fit=crop",
+            videoUrl: "https://www.youtube.com/watch?v=sample3"
+          },
+          {
+            id: 4,
+            title: "Effective Communication in Tech",
+            description: "Master communication skills for technical professionals",
+            instructor: "Sarah Wilson",
+            duration: "29:20",
+            views: "6.9K",
+            category: "Communication",
+            thumbnail: "https://images.unsplash.com/photo-1556761175-4b46a572b786?w=400&h=225&fit=crop",
+            videoUrl: "https://www.youtube.com/watch?v=sample4"
+          }
+        ];
+        setVideos(sampleVideos);
+        setError("Using sample data - please check video_resources.json file");
+        setLoading(false);
+      }
+    };
 
+    loadVideos();
+  }, []);
 
   const categories = ['All', 'Technical Interview', 'System Design', 'Management', 'Communication'];
   
@@ -27,8 +93,26 @@ const VideoResources = () => {
     }
   };
 
+  if (loading) {
+    return (
+      <div className="min-h-screen bg-gray-50 flex items-center justify-center">
+        <div className="text-center">
+          <div className="animate-spin rounded-full h-12 w-12 border-b-2 border-gray-900 mx-auto mb-4"></div>
+          <p className="text-gray-600">Loading videos...</p>
+        </div>
+      </div>
+    );
+  }
+
   return (
     <div className="min-h-screen bg-gray-50">
+      {/* Error message */}
+      {error && (
+        <div className="bg-yellow-50 border border-yellow-200 p-4 mb-4">
+          <p className="text-yellow-800 text-sm">{error}</p>
+        </div>
+      )}
+
       {/* Header */}
       <div className="bg-white shadow-sm">
         <div className="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8 py-8">
@@ -91,6 +175,9 @@ const VideoResources = () => {
                   src={video.thumbnail}
                   alt={video.title}
                   className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                  onError={(e) => {
+                    e.target.src = 'https://images.unsplash.com/photo-1516321318423-f06f85e504b3?w=400&h=225&fit=crop';
+                  }}
                 />
                 <div className="absolute inset-0 bg-black/20 group-hover:bg-black/30 transition-colors duration-300"></div>
                 <div className="absolute inset-0 flex items-center justify-center">

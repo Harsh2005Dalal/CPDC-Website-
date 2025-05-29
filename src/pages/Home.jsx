@@ -1,12 +1,12 @@
 import React from "react";
 import "./h.css";
 import Carousel from '../components/Carousel.jsx'
-import {Link}  from 'react-router'
+import { Link } from 'react-router-dom' // Fixed: Changed from 'react-router' to 'react-router-dom'
 import AnnouncementSlider from '../components/Announcements.jsx'
 
 const Home = () => {
   return (
-    <div className="bg-image min-h-screen w-full h-full bg-cover bg-center bg-no-repeat text-black text-2xl bg-blend-lighten" style="background-image: linear-gradient(rgba(104, 104, 104, 0.4), rgba(100, 100, 100, 0.4)), url('../assets/spiral.jpg');">
+    <div className="bg-image min-h-screen w-full h-full bg-cover bg-center bg-no-repeat text-black text-2xl bg-blend-lighten">
       <AnnouncementSlider />
       
       {/* Hero Section */}
@@ -31,7 +31,7 @@ const Home = () => {
         </div>
 
         {/* About CDPC Section */}
-        <div className="bg-white/80 backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-xl p-6 sm:p-12 mb-8 sm:mb-16 relative z-10 transition-all duration-300 ease-in-out hover:-translate-y-2 sm:hover:-translate-y-4 hover:shadow-x">
+        <div className="bg-white/80 backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-xl p-6 sm:p-12 mb-8 sm:mb-16 relative z-10 transition-all duration-300 ease-in-out hover:-translate-y-2 sm:hover:-translate-y-4 hover:shadow-2xl">
           <div className="text-center mb-8 sm:mb-12">
             <h2 className="text-2xl sm:text-4xl font-light text-gray-800 mb-3 sm:mb-4">
               About CDPC
@@ -112,7 +112,7 @@ const Home = () => {
         </div>
 
         {/* Carousel Section */}
-        <div className="bg-white/60 backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-8 relative z-10 transition-all duration-300 ease-in-out hover:-translate-y-2 sm:hover:-translate-y-4 hover:shadow-x">
+        <div className="bg-white/60 backdrop-blur-sm rounded-xl sm:rounded-2xl shadow-lg p-4 sm:p-8 relative z-10 transition-all duration-300 ease-in-out hover:-translate-y-2 sm:hover:-translate-y-4 hover:shadow-2xl">
           <div className="text-center mb-6 sm:mb-8">
             <h3 className="text-2xl sm:text-3xl font-light text-gray-800 mb-3 sm:mb-4">
               Campus Highlights
@@ -123,9 +123,11 @@ const Home = () => {
           <Carousel />
           
           <div className="flex justify-center mt-6 sm:mt-8">
-          <Link to='/past-recruiters' ><button className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:cursor-pointer text-sm sm:text-base">
-              Explore More
-            </button></Link>
+            <Link to='/past-recruiters'>
+              <button className="bg-blue-600 hover:bg-blue-700 text-white px-6 sm:px-8 py-2.5 sm:py-3 rounded-full font-medium transition-all duration-300 transform hover:scale-105 shadow-lg hover:cursor-pointer text-sm sm:text-base">
+                Explore More
+              </button>
+            </Link>
           </div>
         </div>
       </div>

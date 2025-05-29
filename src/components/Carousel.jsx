@@ -1,11 +1,22 @@
 import { useState, useEffect, useRef } from 'react';
-import logos from '../data/pastRecruiters.json'
-import {Link} from 'react-router'
+import logos from '../data/pastRecruiters.json';
+// Remove unused import
+// import {Link} from 'react-router'
 
 // This component creates a smooth horizontal scrolling carousel
 // that automatically loops through company logos
 const Carousel = () => {
-  // Placeholder company logos - replace with your actual company image
+  // Add error handling for missing data
+  if (!logos || logos.length === 0) {
+    return (
+      <div className="w-full py-6">
+        <div className="text-center">
+          <h2 className="text-3xl pb-1 font-bold text-gray-800">Our Recruiting Partners</h2>
+          <p className="text-black">Loading...</p>
+        </div>
+      </div>
+    );
+  }
   
   // Clone the logos array to create a seamless infinite scroll effect
   const allLogos = [...logos, ...logos];
@@ -21,6 +32,9 @@ const Carousel = () => {
   const totalWidth = logos.length * (logoWidth + gapWidth);
   
   useEffect(() => {
+    // Prevent issues if totalWidth is 0
+    if (totalWidth === 0) return;
+    
     // Calculate animation speed based on total width and desired duration
     const pixelsPerSecond = totalWidth / animationDuration;
     let animationId;
@@ -61,7 +75,9 @@ const Carousel = () => {
   return (
     <div className="w-full overflow-hidden py-6">
       <div className="text-center mb-4">
-        <h2 className="text-3xl pb-1 font-bold text-gray-800 relative z-10 transition-all duration-300 ease-in-out hover:-translate-y-2 hover:z-20 hover:cursor-pointer">Our Recruiting Partners</h2>
+        <h2 className="text-3xl pb-1 font-bold text-gray-800 relative z-10 transition-all duration-300 ease-in-out hover:-translate-y-2 hover:z-20 hover:cursor-pointer">
+          Our Recruiting Partners
+        </h2>
         <p className="text-black">Top companies that recruit from our college</p>
       </div>
       
@@ -79,18 +95,19 @@ const Carousel = () => {
         >
           {allLogos.map((logo, index) => (
             <div 
-              key={`${logo.id}-${index}`}
+              key={`${logo.id || index}-${index}`}
               className="flex-shrink-0 mx-3 transition-all duration-300"
               style={{ width: `${logoWidth}px` }}
             >
-              <div className=" bg-blue-50 p-4 rounded-lg shadow-sm h-30 flex items-center justify-center">
+              <div className="bg-blue-50 p-4 rounded-lg shadow-sm h-30 flex items-center justify-center">
                 <img 
                   src={logo.src} 
-                  alt={`${logo.name} logo`} 
+                  alt={`${logo.name || 'Company'} logo`} 
                   className="max-h-16 max-w-full object-contain"
+                  loading="lazy"
                 />
               </div>
-              <p className="text-center mt-2 text-lg text-black">{logo.name}</p>
+              <p className="text-center mt-2 text-lg text-black">{logo.name || 'Company'}</p>
             </div>
           ))}
         </div>

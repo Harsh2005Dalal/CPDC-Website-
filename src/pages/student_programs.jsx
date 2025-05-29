@@ -1,6 +1,28 @@
-import React from 'react';
-import {Link} from 'react-router'
+import React, { useEffect } from 'react';
+import { Link } from 'react-router';
+
 const IITRoparPlacement = () => {
+  // Load Font Awesome CSS properly
+  useEffect(() => {
+    const link = document.createElement('link');
+    link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css';
+    link.rel = 'stylesheet';
+    link.crossOrigin = 'anonymous';
+    
+    // Check if the link is already added to avoid duplicates
+    if (!document.querySelector(`link[href="${link.href}"]`)) {
+      document.head.appendChild(link);
+    }
+    
+    // Cleanup function to remove the link when component unmounts
+    return () => {
+      const existingLink = document.querySelector(`link[href="${link.href}"]`);
+      if (existingLink) {
+        document.head.removeChild(existingLink);
+      }
+    };
+  }, []);
+
   return (
     <div className="bg-gradient-to-br from-blue-50 via-white to-indigo-50 min-h-screen">
       
@@ -241,14 +263,18 @@ const IITRoparPlacement = () => {
             Join leading companies in accessing top engineering talent through our innovative programs
           </p>
           <div className="flex flex-col sm:flex-row gap-4 justify-center">
-            <Link to='/contact-us'><button className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300 transform hover:scale-105">
-              <i className="fas fa-phone mr-2"></i>
-              Contact Placement Cell
-            </button></Link>
-            <Link to='/resources'><button className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300 transform hover:scale-105">
-              <i className="fas fa-download mr-2"></i>
-              Download Brochure
-            </button></Link>
+            <Link to='/contact-us'>
+              <button className="bg-white text-blue-600 px-8 py-4 rounded-lg font-semibold hover:bg-gray-100 transition-colors duration-300 transform hover:scale-105">
+                <i className="fas fa-phone mr-2"></i>
+                Contact Placement Cell
+              </button>
+            </Link>
+            <Link to='/resources'>
+              <button className="border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-blue-600 transition-all duration-300 transform hover:scale-105">
+                <i className="fas fa-download mr-2"></i>
+                Download Brochure
+              </button>
+            </Link>
           </div>
         </div>
 
@@ -270,12 +296,6 @@ const IITRoparPlacement = () => {
           </div>
         </div>
       </div>
-
-      {/* Font Awesome CDN - Note: In a real React app, you'd want to install and import Font Awesome properly */}
-      <link 
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
-        rel="stylesheet"
-      />
     </div>
   );
 };

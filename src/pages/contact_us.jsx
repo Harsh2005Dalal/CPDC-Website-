@@ -1,8 +1,28 @@
-import React from 'react';
-
-import {Link} from 'react-router'
+import React, { useEffect } from 'react';
+import {Link} from 'react-router-dom'
 
 const PlacementContact = () => {
+  // Load Font Awesome dynamically
+  useEffect(() => {
+    const link = document.createElement('link');
+    link.href = 'https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css';
+    link.rel = 'stylesheet';
+    link.crossOrigin = 'anonymous';
+    
+    // Check if the stylesheet is already loaded
+    if (!document.querySelector(`link[href="${link.href}"]`)) {
+      document.head.appendChild(link);
+    }
+    
+    // Cleanup function to remove the link when component unmounts
+    return () => {
+      const existingLink = document.querySelector(`link[href="${link.href}"]`);
+      if (existingLink) {
+        document.head.removeChild(existingLink);
+      }
+    };
+  }, []);
+
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-blue-100 to-indigo-100">
       {/* Header */}
@@ -163,10 +183,12 @@ const PlacementContact = () => {
               </div>
               
               <div className="mt-6 text-center">
-                <Link to='/placement-stats'><button className="bg-blue-500 text-white px-8 py-3 rounded-lg hover:bg-blue-600 transition-colors duration-300 font-semibold">
-                  <i className="fas fa-chart-bar mr-2"></i>
-                  View Detailed Stats
-                </button></Link>
+                <Link to='/placement-stats'>
+                  <button className="bg-blue-500 text-white px-8 py-3 rounded-lg hover:bg-blue-600 transition-colors duration-300 font-semibold">
+                    <i className="fas fa-chart-bar mr-2"></i>
+                    View Detailed Stats
+                  </button>
+                </Link>
               </div>
             </div>
 
@@ -213,10 +235,12 @@ const PlacementContact = () => {
             </div>
             <h4 className="font-bold text-gray-800 mb-3 text-xl">Download Brochure</h4>
             <p className="text-gray-600 mb-6">Get our comprehensive placement brochure with student profiles and placement statistics</p>
-            <Link to='/resources'><button className="bg-blue-500 text-white px-8 py-3 rounded-lg hover:bg-blue-600 transition-colors duration-300 font-semibold">
-              <i className="fas fa-download mr-2"></i>
-              Download PDF
-            </button></Link>
+            <Link to='/resources'>
+              <button className="bg-blue-500 text-white px-8 py-3 rounded-lg hover:bg-blue-600 transition-colors duration-300 font-semibold">
+                <i className="fas fa-download mr-2"></i>
+                Download PDF
+              </button>
+            </Link>
           </div>
           
           <div className="bg-white rounded-xl shadow-lg p-8 text-center hover:shadow-xl transition-shadow duration-300">
@@ -225,10 +249,12 @@ const PlacementContact = () => {
             </div>
             <h4 className="font-bold text-gray-800 mb-3 text-xl">Recruiter Portal</h4>
             <p className="text-gray-600 mb-6">Access our dedicated portal for company registration and recruitment process management</p>
-            <Link to='/recruiters-portal'><button className="bg-green-500 text-white px-8 py-3 rounded-lg hover:bg-green-600 transition-colors duration-300 font-semibold">
-              <i className="fas fa-sign-in-alt mr-2"></i>
-              Access Portal
-            </button></Link>
+            <Link to='/recruiters-portal'>
+              <button className="bg-green-500 text-white px-8 py-3 rounded-lg hover:bg-green-600 transition-colors duration-300 font-semibold">
+                <i className="fas fa-sign-in-alt mr-2"></i>
+                Access Portal
+              </button>
+            </Link>
           </div>
         </div>
 
@@ -251,12 +277,6 @@ const PlacementContact = () => {
           </div>
         </div>
       </div>
-
-      {/* Font Awesome CDN */}
-      <link 
-        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" 
-        rel="stylesheet"
-      />
     </div>
   );
 };

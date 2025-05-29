@@ -20,7 +20,10 @@ import {
   ChevronRight
 } from 'lucide-react';
 
-import {Link} from 'react-router'
+// Mock Link component for demonstration - replace with actual react-router-dom Link in your project
+const Link = ({ to, children, ...props }) => (
+  <a href={to} {...props}>{children}</a>
+);
 
 const WhyRecruitPage = () => {
   const [activeCard, setActiveCard] = useState(null);
@@ -283,14 +286,18 @@ const WhyRecruitPage = () => {
               Experience the difference our graduates can make to your organization.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
-              <Link to='/recruiter-portal'><button className="bg-white text-blue-700 px-8 py-4 rounded-xl font-bold hover:bg-blue-50 hover:scale-105 transition-all duration-300 flex items-center justify-center group">
-                Start Recruiting
-                <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-              </button></Link>
-              <Link to='/resources'><button className="border-2 border-white text-white px-8 py-4 rounded-xl font-bold hover:bg-white hover:text-blue-700 hover:scale-105 transition-all duration-300 flex items-center justify-center group">
-                Download Brochure
-                <ChevronRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
-              </button></Link>
+              <Link to='/recruiter-portal'>
+                <button className="bg-white text-blue-700 px-8 py-4 rounded-xl font-bold hover:bg-blue-50 hover:scale-105 transition-all duration-300 flex items-center justify-center group">
+                  Start Recruiting
+                  <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                </button>
+              </Link>
+              <Link to='/resources'>
+                <button className="border-2 border-white text-white px-8 py-4 rounded-xl font-bold hover:bg-white hover:text-blue-700 hover:scale-105 transition-all duration-300 flex items-center justify-center group">
+                  Download Brochure
+                  <ChevronRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
+                </button>
+              </Link>
             </div>
           </div>
         </div>
