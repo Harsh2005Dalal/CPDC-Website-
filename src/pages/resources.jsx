@@ -1,34 +1,35 @@
 import React, { useState, useEffect } from 'react';
 import { Link } from 'react-router-dom';
+import documents from '../data/resources.json'
 
 // Safe import with fallback
-let documents = [];
-try {
-  documents = require('../data/resources.json');
-} catch (error) {
-  console.warn('resources.json not found, using fallback data');
-  documents = [
-    {
-      id: 1,
-      icon: "📄",
-      title: "Company Registration Form",
-      description: "Required form for company registration with placement cell",
-      isImportant: true,
-      actionType: "download",
-      filePath: "/documents/registration-form.pdf",
-      downloadName: "company-registration-form"
-    },
-    {
-      id: 2,
-      icon: "📊",
-      title: "Student Database",
-      description: "Access to student statistics and information",
-      isImportant: false,
-      actionType: "navigate",
-      navigateUrl: "/placement-stats"
-    }
-  ];
-}
+// let documents = [];
+// try {
+//   documents = require('../data/resources.json');
+// } catch (error) {
+//   console.warn('resources.json not found, using fallback data');
+//   documents = [
+//     {
+//       id: 1,
+//       icon: "📄",
+//       title: "Company Registration Form",
+//       description: "Required form for company registration with placement cell",
+//       isImportant: true,
+//       actionType: "download",
+//       filePath: "/documents/registration-form.pdf",
+//       downloadName: "company-registration-form"
+//     },
+//     {
+//       id: 2,
+//       icon: "📊",
+//       title: "Student Database",
+//       description: "Access to student statistics and information",
+//       isImportant: false,
+//       actionType: "navigate",
+//       navigateUrl: "/placement-stats"
+//     }
+//   ];
+// }
 
 const PlacementDocuments = () => {
   const [visibleCards, setVisibleCards] = useState([]);

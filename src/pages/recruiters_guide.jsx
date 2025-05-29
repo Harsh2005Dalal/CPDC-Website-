@@ -16,33 +16,34 @@ import {
   ChevronDown,
   Download
 } from 'lucide-react';
+import  processStepsData from '../data/recruiters_guide.json'
 
 // Safe import with fallback
-let processStepsData = [];
-try {
-  processStepsData = require('../data/recruiters_guide.json');
-} catch (error) {
-  console.warn('recruiters_guide.json not found, using fallback data');
-  processStepsData = [
-    {
-      id: 1,
-      iconName: "FileText",
-      title: "Company Registration",
-      description: "Submit your company details and requirements",
-      duration: "1-2 days",
-      details: [
-        "Complete company registration form",
-        "Submit required documents",
-        "Provide job descriptions"
-      ],
-      requirements: [
-        "Valid company registration",
-        "HR contact details",
-        "Job requirements document"
-      ]
-    }
-  ];
-}
+// let processStepsData = [];
+// try {
+//   processStepsData = require('../data/recruiters_guide.json');
+// } catch (error) {
+//   console.warn('recruiters_guide.json not found, using fallback data');
+//   processStepsData = [
+//     {
+//       id: 1,
+//       iconName: "FileText",
+//       title: "Company Registration",
+//       description: "Submit your company details and requirements",
+//       duration: "1-2 days",
+//       details: [
+//         "Complete company registration form",
+//         "Submit required documents",
+//         "Provide job descriptions"
+//       ],
+//       requirements: [
+//         "Valid company registration",
+//         "HR contact details",
+//         "Job requirements document"
+//       ]
+//     }
+//   ];
+// }
 
 const RecruiterProcess = () => {
   const [expandedStep, setExpandedStep] = useState(null);
