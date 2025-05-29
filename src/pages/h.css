@@ -3,8 +3,7 @@
     /* height: 300px; */
     height:100%;
     background-image: 
-        linear-gradient(rgba(104, 104, 104, 0.4), rgba(100, 100, 100, 0.4)),
-        url('../assets/spiral.jpg');
+        linear-gradient(rgba(104, 104, 104, 0.4), rgba(100, 100, 100, 0.4));
     background-size: cover; 
     background-position: center;
     background-repeat: no-repeat; 

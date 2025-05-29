@@ -3,10 +3,15 @@ import "./h.css";
 import Carousel from '../components/Carousel.jsx'
 import { Link } from 'react-router-dom' // Fixed: Changed from 'react-router' to 'react-router-dom'
 import AnnouncementSlider from '../components/Announcements.jsx'
+import bg_image from '../assets/Spiral.jpg'
 
 const Home = () => {
   return (
-    <div className="bg-image min-h-screen w-full h-full bg-cover bg-center bg-no-repeat text-black text-2xl bg-blend-lighten">
+    <div className="bg-image min-h-screen w-full h-full bg-cover bg-center bg-no-repeat text-black text-2xl bg-blend-lighten"  style={{
+      backgroundImage: `url(${bg_image})`,
+      backgroundSize: 'cover',
+      backgroundPosition: 'center'
+    }}>
       <AnnouncementSlider />
       
       {/* Hero Section */}
