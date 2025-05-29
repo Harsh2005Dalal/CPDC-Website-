@@ -112,7 +112,8 @@ const WhyRecruitPage = () => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-blue-50 via-blue-100 to-blue-50">
       {/* Hero Section */}
-      <div className="relative overflow-hidden">
+     <div className="py-16 bg-white/50 backdrop-blur-sm">
+      {/* <div className="relative overflow-hidden bg-white/50 backdrop-blur-sm"> */}
         <div className="absolute inset-0 bg-gradient-to-r from-blue-900/10 to-blue-800/5"></div>
         <div className="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20">
           <div className={`text-center transition-all duration-1000 ${isVisible ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-10'}`}>
@@ -147,10 +148,9 @@ const WhyRecruitPage = () => {
             </div>
           </div>
         </div>
-      </div>
+      {/* </div> */}
 
       {/* Statistics Section */}
-      <div className="py-16 bg-white/50 backdrop-blur-sm">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-8">
             {stats.map((stat, index) => {
@@ -219,23 +219,23 @@ const WhyRecruitPage = () => {
         </div>
       </div>
 
-      {/* Achievements Section */}
-      <div className="py-16 bg-gradient-to-r from-blue-900 to-blue-800 text-white">
+      {/* Achievements Section - Updated with sophisticated dark theme */}
+      <div className="py-16 bg-gradient-to-br from-slate-800 via-slate-900 to-gray-900 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <div className="text-center mb-12">
-            <h2 className="text-4xl font-bold mb-4">Our Achievements</h2>
-            <p className="text-xl text-blue-100">Recognition that validates our commitment to excellence</p>
+            <h2 className="text-4xl font-bold mb-4 text-white">Our Achievements</h2>
+            <p className="text-xl text-slate-300">Recognition that validates our commitment to excellence</p>
           </div>
           
           <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-6">
             {achievements.map((achievement, index) => (
               <div 
                 key={index} 
-                className="bg-white/10 backdrop-blur-sm rounded-xl p-6 hover:bg-white/20 transition-all duration-300 group"
+                className="bg-white/5 backdrop-blur-sm rounded-xl p-6 border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300 group"
               >
                 <div className="flex items-start">
-                  <Zap className="w-6 h-6 text-yellow-400 mr-3 mt-1 group-hover:scale-110 transition-transform duration-300" />
-                  <span className="text-blue-50 group-hover:text-white transition-colors duration-300">{achievement}</span>
+                  <Zap className="w-6 h-6 text-amber-400 mr-3 mt-1 group-hover:scale-110 transition-transform duration-300" />
+                  <span className="text-slate-200 group-hover:text-white transition-colors duration-300">{achievement}</span>
                 </div>
               </div>
             ))}
@@ -276,24 +276,24 @@ const WhyRecruitPage = () => {
         </div>
       </div>
 
-      {/* Call to Action */}
+      {/* Call to Action - Updated with elegant gradient */}
       <div className="py-20">
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
-          <div className="bg-gradient-to-r from-blue-600 to-blue-700 rounded-3xl p-12 text-white shadow-2xl">
-            <h2 className="text-4xl font-bold mb-6">Ready to Discover Exceptional Talent?</h2>
-            <p className="text-xl text-blue-100 mb-8 leading-relaxed">
+          <div className="bg-gradient-to-br from-slate-700 via-slate-800 to-gray-800 rounded-3xl p-12 text-white shadow-2xl border border-slate-600/20">
+            <h2 className="text-4xl font-bold mb-6 text-white">Ready to Discover Exceptional Talent?</h2>
+            <p className="text-xl text-slate-300 mb-8 leading-relaxed">
               Join the 500+ companies that have successfully recruited from IIT Ropar. 
               Experience the difference our graduates can make to your organization.
             </p>
             <div className="flex flex-col sm:flex-row gap-4 justify-center">
               <Link to='/recruiter-portal'>
-                <button className="bg-white text-blue-700 px-8 py-4 rounded-xl font-bold hover:bg-blue-50 hover:scale-105 transition-all duration-300 flex items-center justify-center group">
+                <button className="bg-white text-slate-800 px-8 py-4 rounded-xl font-bold hover:bg-slate-100 hover:scale-105 transition-all duration-300 flex items-center justify-center group shadow-lg">
                   Start Recruiting
                   <ArrowRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                 </button>
               </Link>
               <Link to='/resources'>
-                <button className="border-2 border-white text-white px-8 py-4 rounded-xl font-bold hover:bg-white hover:text-blue-700 hover:scale-105 transition-all duration-300 flex items-center justify-center group">
+                <button className="border-2 border-slate-400 text-slate-200 px-8 py-4 rounded-xl font-bold hover:bg-white hover:text-slate-800 hover:border-white hover:scale-105 transition-all duration-300 flex items-center justify-center group">
                   Download Brochure
                   <ChevronRight className="w-5 h-5 ml-2 group-hover:translate-x-1 transition-transform duration-300" />
                 </button>

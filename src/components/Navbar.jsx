@@ -31,13 +31,13 @@ const Navbar = () => {
 
   return (
     <div>
-      <div className="box1 flex flex-row justify-between items-center pt-3 pb-3 bg-blue-100 px-6 sticky top-0 z-50 shadow-sm">
+      <div className="box1 flex flex-row justify-between items-center pt-3 pb-3 px-6 sticky top-0 z-50 shadow-lg" style={{ backgroundColor: 'rgb(15, 23, 42)' }}>
         {/* Logo */}
         <div className="cpdc_logo">
           <Link to="/">
             <img 
               src={clogo} 
-              className="h-16 lg:h-20 p-2 invert transition-transform hover:scale-105" 
+              className="h-16 lg:h-20 p-2 invert transition-transform hover:scale-105 brightness-0" 
               alt="CDPC Logo" 
             />
           </Link>
@@ -45,7 +45,7 @@ const Navbar = () => {
 
         {/* Desktop Navigation */}
         <div className="box2 hidden lg:flex flex-row items-center gap-8">
-          <div className="buttons flex flex-row items-center gap-6 text-black">
+          <div className="buttons flex flex-row items-center gap-6">
             
             {/* Main Navigation Buttons */}
             <Link to="/why-recruit">
@@ -54,7 +54,7 @@ const Navbar = () => {
                   setIsRecruitersDropdownOpen(false);
                   setIsMoreDropdownOpen(false);
                 }}
-                className="font-medium text-lg px-4 py-2.5 hover:bg-blue-200 rounded-lg hover:cursor-pointer transition-all duration-200 hover:shadow-sm"
+                className="font-medium text-lg px-4 py-2.5 text-gray-100 hover:bg-blue-100 rounded-lg hover:cursor-pointer transition-all duration-200 hover:shadow-sm hover:text-gray-800"
                 type="button"
               >
                 Why Recruit?
@@ -67,7 +67,7 @@ const Navbar = () => {
                   setIsRecruitersDropdownOpen(false);
                   setIsMoreDropdownOpen(false);
                 }}
-                className="font-medium text-lg px-4 py-2.5 hover:bg-blue-200 rounded-lg hover:cursor-pointer transition-all duration-200 hover:shadow-sm"
+                className="font-medium text-lg px-4 py-2.5 text-gray-100 hover:bg-blue-100 rounded-lg hover:cursor-pointer transition-all duration-200 hover:shadow-sm hover:text-gray-800"
                 type="button"
               >
                 About Us
@@ -80,7 +80,7 @@ const Navbar = () => {
                   setIsRecruitersDropdownOpen(false);
                   setIsMoreDropdownOpen(false);
                 }}
-                className="font-medium text-lg px-4 py-2.5 bg-blue-500 text-white hover:bg-blue-600 rounded-lg hover:cursor-pointer transition-all duration-200 hover:shadow-md"
+                className="font-medium text-lg px-4 py-2.5 text-gray-100 hover:bg-blue-100 rounded-lg hover:cursor-pointer transition-all duration-200 hover:shadow-md hover:text-gray-800"
                 type="button"
               >
                 Corporate Connect
@@ -95,7 +95,7 @@ const Navbar = () => {
                   setIsMoreDropdownOpen(false);
                   setIsRecruitersDropdownOpen(true);
                 }}
-                className="font-medium text-lg px-4 py-2.5 hover:bg-blue-200 rounded-lg hover:cursor-pointer transition-all duration-200 hover:shadow-sm flex items-center gap-1"
+                className="font-medium text-lg px-4 py-2.5 text-gray-100 hover:bg-blue-100 rounded-lg hover:cursor-pointer transition-all duration-200 hover:shadow-sm flex items-center gap-1 hover:text-gray-800"
                 type="button"
               >
                 For Recruiters
@@ -105,7 +105,7 @@ const Navbar = () => {
               {/* Recruiters Dropdown Menu */}
               {isRecruitersDropdownOpen && (
                 <div 
-                  className="absolute top-full left-0 mt-1 bg-white rounded-lg shadow-lg border border-gray-200 py-2 min-w-48 z-50"
+                  className="absolute top-full left-0 mt-1 bg-white rounded-lg shadow-xl border border-gray-200 py-2 min-w-48 z-50"
                   onMouseLeave={closeRecruitersDropdown}
                 >
                   <Link to="/resources" onClick={closeRecruitersDropdown}>
@@ -135,7 +135,7 @@ const Navbar = () => {
                   setIsRecruitersDropdownOpen(false);
                   setIsMoreDropdownOpen(true);
                 }}
-                className="font-medium text-lg px-4 py-2.5 hover:bg-blue-200 rounded-lg hover:cursor-pointer transition-all duration-200 hover:shadow-sm flex items-center gap-1"
+                className="font-medium text-lg px-4 py-2.5 text-gray-100 hover:bg-blue-100 rounded-lg hover:cursor-pointer transition-all duration-200 hover:shadow-sm flex items-center gap-1 hover:text-gray-800"
                 type="button"
               >
                 More
@@ -145,7 +145,7 @@ const Navbar = () => {
               {/* More Dropdown Menu */}
               {isMoreDropdownOpen && (
                 <div 
-                  className="absolute top-full right-0 mt-1 bg-white rounded-lg shadow-lg border border-gray-200 py-2 min-w-48 z-50"
+                  className="absolute top-full right-0 mt-1 bg-white rounded-lg shadow-xl border border-gray-200 py-2 min-w-48 z-50"
                   onMouseLeave={closeMoreDropdown}
                 >
                   <Link to="/student-programs" onClick={closeMoreDropdown}>
@@ -179,13 +179,13 @@ const Navbar = () => {
         <div className="lg:hidden">
           <button
             onClick={toggleMenu}
-            className="p-2 rounded-lg hover:bg-blue-200 transition-colors duration-200"
+            className="p-2 rounded-lg hover:bg-blue-100 transition-colors duration-200"
             type="button"
           >
             {isMenuOpen ? (
-              <X size={24} className="text-black" />
+              <X size={24} className="text-gray-100" />
             ) : (
-              <Menu size={24} className="text-black" />
+              <Menu size={24} className="text-gray-100" />
             )}
           </button>
         </div>
@@ -193,11 +193,11 @@ const Navbar = () => {
 
       {/* Mobile Navigation Menu */}
       {isMenuOpen && (
-        <div className="lg:hidden bg-blue-50 border-t border-blue-200 px-6 py-4 sticky top-20 z-40 shadow-sm">
+        <div className="lg:hidden border-t border-blue-800/30 px-6 py-4 sticky top-20 z-40 shadow-lg" style={{ backgroundColor: 'rgb(30, 41, 59)' }}>
           <div className="flex flex-col gap-2">
             <Link to="/why-recruit" onClick={toggleMenu}>
               <button 
-                className="w-full text-left font-medium text-base px-4 py-3 hover:bg-blue-200 rounded-lg transition-colors duration-200"
+                className="w-full text-left font-medium text-base px-4 py-3 text-gray-100 hover:bg-blue-100 rounded-lg transition-colors duration-200 hover:text-gray-800"
                 type="button"
               >
                 Why Recruit?
@@ -206,7 +206,7 @@ const Navbar = () => {
             
             <Link to="/about-us" onClick={toggleMenu}>
               <button 
-                className="w-full text-left font-medium text-base px-4 py-3 hover:bg-blue-200 rounded-lg transition-colors duration-200"
+                className="w-full text-left font-medium text-base px-4 py-3 text-gray-100 hover:bg-blue-100 rounded-lg transition-colors duration-200 hover:text-gray-800"
                 type="button"
               >
                 About Us
@@ -215,7 +215,7 @@ const Navbar = () => {
 
             <Link to="/corporate-connect-home" onClick={toggleMenu}>
               <button 
-                className="w-full text-left font-medium text-base px-4 py-3 bg-blue-500 text-white hover:bg-blue-600 rounded-lg transition-colors duration-200"
+                className="w-full text-left font-medium text-base px-4 py-3 bg-blue-600 text-white hover:bg-blue-700 rounded-lg transition-colors duration-200"
                 type="button"
               >
                 Corporate Connect
@@ -224,7 +224,7 @@ const Navbar = () => {
 
             <Link to="/student-programs" onClick={toggleMenu}>
               <button 
-                className="w-full text-left font-medium text-base px-4 py-3 hover:bg-blue-200 rounded-lg transition-colors duration-200"
+                className="w-full text-left font-medium text-base px-4 py-3 text-gray-100 hover:bg-blue-100 rounded-lg transition-colors duration-200 hover:text-gray-800"
                 type="button"
               >
                 Student Programs
@@ -233,7 +233,7 @@ const Navbar = () => {
             
             <Link to="/placement-stats" onClick={toggleMenu}>
               <button 
-                className="w-full text-left font-medium text-base px-4 py-3 hover:bg-blue-200 rounded-lg transition-colors duration-200"
+                className="w-full text-left font-medium text-base px-4 py-3 text-gray-100 hover:bg-blue-100 rounded-lg transition-colors duration-200 hover:text-gray-800"
                 type="button"
               >
                 Placements
@@ -241,11 +241,11 @@ const Navbar = () => {
             </Link>
             
             {/* Mobile Recruiters Section */}
-            <div className="border-t border-blue-200 pt-2 mt-2">
-              <div className="text-sm font-semibold text-gray-600 px-4 py-2">For Recruiters</div>
+            <div className="border-t border-blue-800/30 pt-2 mt-2">
+              <div className="text-sm font-semibold text-blue-300 px-4 py-2">For Recruiters</div>
               <Link to="/resources" onClick={toggleMenu}>
                 <button 
-                  className="w-full text-left font-medium text-base px-6 py-2.5 hover:bg-blue-200 rounded-lg transition-colors duration-200"
+                  className="w-full text-left font-medium text-base px-6 py-2.5 text-gray-200 hover:bg-blue-100 rounded-lg transition-colors duration-200 hover:text-gray-800"
                   type="button"
                 >
                   📚 Resources
@@ -253,7 +253,7 @@ const Navbar = () => {
               </Link>
               <Link to="/recruiters-guide" onClick={toggleMenu}>
                 <button 
-                  className="w-full text-left font-medium text-base px-6 py-2.5 hover:bg-blue-200 rounded-lg transition-colors duration-200"
+                  className="w-full text-left font-medium text-base px-6 py-2.5 text-gray-200 hover:bg-blue-100 rounded-lg transition-colors duration-200 hover:text-gray-800"
                   type="button"
                 >
                   📖 Recruiter&apos;s Guide
@@ -261,7 +261,7 @@ const Navbar = () => {
               </Link>
               <Link to="/recruiters-portal" onClick={toggleMenu}>
                 <button 
-                  className="w-full text-left font-medium text-base px-6 py-2.5 hover:bg-blue-200 rounded-lg transition-colors duration-200"
+                  className="w-full text-left font-medium text-base px-6 py-2.5 text-gray-200 hover:bg-blue-100 rounded-lg transition-colors duration-200 hover:text-gray-800"
                   type="button"
                 >
                   🚪 Recruiter&apos;s Portal
@@ -270,9 +270,9 @@ const Navbar = () => {
             </div>
             
             {/* IIT Logo in Mobile Menu - Uncomment if needed
-            <div className="pt-4 border-t border-blue-200 mt-4">
+            <div className="pt-4 border-t border-blue-800/30 mt-4">
               <Link to="/iitRopar" onClick={toggleMenu}>
-                <div className="flex items-center gap-3 px-4 py-2 hover:bg-blue-200 rounded-lg transition-colors duration-200">
+                <div className="flex items-center gap-3 px-4 py-2 text-gray-100 hover:bg-blue-600/20 rounded-lg transition-colors duration-200">
                   <img 
                     src={iitlogo} 
                     alt="IIT Logo" 

@@ -1,17 +1,30 @@
 [
-    {
-      "id": 1,
-      "title": "Summer Sale",
-      "description": "Get 30% off on all products until June 30th! hwadhkawdghehgfhkhkawdhadwhhw"
-    },
-    {
-      "id": 2,
-      "title": "New Collection",
-      "description": "Our autumn collection has just arrived. Check it out!"
-    },
-    {
-      "id": 3,
-      "title": "Free Shipping",
-      "description": "Free shipping on all orders over $50"
-    }
-  ]
+  {
+    "id": 1,
+    "title": "New Feature Launch",
+    "description": "Discover our revolutionary AI-powered dashboard that transforms your workflow",
+    "type": "feature",
+    "priority": "high"
+  },
+  {
+    "id": 2,
+    "title": "System Upgrade Complete",
+    "description": "Experience 3x faster performance with our latest infrastructure improvements",
+    "type": "update",
+    "priority": "medium"
+  },
+  {
+    "id": 3,
+    "title": "Achievement Unlocked",
+    "description": "We've reached 1 million satisfied users! Thank you for being part of our journey",
+    "type": "milestone",
+    "priority": "high"
+  },
+  {
+    "id": 4,
+    "title": "Enhanced Security",
+    "description": "New end-to-end encryption ensures your data is more secure than ever",
+    "type": "security",
+    "priority": "medium"
+  }
+]
